@@ -15,7 +15,6 @@
         "php": ">=5.3.9",
         "braincrafted/bootstrap-bundle": "~2.0",
         "components/jquery": "^3.2",
-        "twbs/bootstrap": "3.0.*",
         "doctrine/doctrine-bundle": "~1.4",
         "doctrine/orm": "^2.4.8",
         "incenteev/composer-parameter-handler": "~2.0",
@@ -25,7 +24,9 @@
         "symfony/monolog-bundle": "^3.0.2",
         "symfony/swiftmailer-bundle": "~2.3,>=2.3.10",
         "symfony/symfony": "2.8.*",
-        "twig/twig": "^1.0||^2.0"
+        "twbs/bootstrap": "3.0.*",
+        "twig/twig": "^1.0||^2.0",
+        "bmatzner/fontawesome-bundle": "~4.7"
     },
 
     "require-dev": {
