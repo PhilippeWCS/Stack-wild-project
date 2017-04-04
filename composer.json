@@ -13,8 +13,9 @@
     },
     "require": {
         "php": ">=5.3.9",
-        "braincrafted/bootstrap-bundle": "@stable",
+        "braincrafted/bootstrap-bundle": "~2.0",
         "components/jquery": "^3.2",
+        "twbs/bootstrap": "3.0.*",
         "doctrine/doctrine-bundle": "~1.4",
         "doctrine/orm": "^2.4.8",
         "incenteev/composer-parameter-handler": "~2.0",

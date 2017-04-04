@@ -7,8 +7,11 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 
 braincrafted_bootstrap:
+    css_preprocessor: less
     auto_configure:
         assetic: false
+    customize:
+        variables_file: %kernel.root_dir%/Resources/less/variables.less
 
 assetic:
     filters:
