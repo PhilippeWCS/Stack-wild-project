@@ -1,0 +1,4 @@
+services:
+#    wcs_platform.example:
+#        class: Wcs\PlatformBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
