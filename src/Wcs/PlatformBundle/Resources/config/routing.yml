@@ -4,6 +4,6 @@ wcs_platform_questions:
 
 wcs_platform_homepage:
     path:     /
-    defaults: { _controller: WcsPlatformBundle:Default:index }
+    defaults: { _controller: WcsPlatformBundle:Questions:index }
 
 

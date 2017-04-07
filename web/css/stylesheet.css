@@ -24,6 +24,10 @@
 #font a:hover{
     color: black;
 }
+.img-responsive{
+    margin-top: -40px;
+}
+
 #dropdown_login a{
     background-color:#35383a;
 }
@@ -103,6 +107,8 @@
 #contenu{
     background-color:#35383a;
     height: 700px;
+    color: white;
+    font-family: 'Raleway', sans-serif;
 }
 #bouton{
     background-color:#1fa597;
@@ -111,8 +117,18 @@
     margin-left: 40px;
     margin-top: 40px;
 }
+#contenu h1{
+    margin: 0 0;
+    padding: 10px 10px;
+}
+.formulaire{
+    width: 90%;
+    margin-left:40px;
+}
+#questions{
+    margin-top: 40px;
 
-
+}
 /************************************************\
 ==================================================
 3. Footer
@@ -125,13 +141,22 @@
     border-top: 4px solid #fcab0e;
     margin: 0;
     padding: 20px 0;
+    text-decoration: none;
+}
+.footer a {
+    text-decoration: none;
+    color:white;
+}
+.footer a:hover {
+    text-decoration: none;
+    color:white;
 }
 .footer_dv {
     width: 100%;
 }
 .footer_dv h4 {
     color: #fcab0e;
-    font-family: roboto;
+    font-family: 'Raleway', sans-serif;
     font-weight: bold;
     margin-bottom: 30px;
     text-transform: uppercase;
@@ -157,4 +182,7 @@
     line-height: 20px;
     margin: 0 0 15px;
     text-align: justify;
+}
+.fa{
+    padding: 0px 10px;
 }
