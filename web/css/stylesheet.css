@@ -141,13 +141,22 @@
     border-top: 4px solid #fcab0e;
     margin: 0;
     padding: 20px 0;
+    text-decoration: none;
+}
+.footer a {
+    text-decoration: none;
+    color:white;
+}
+.footer a:hover {
+    text-decoration: none;
+    color:white;
 }
 .footer_dv {
     width: 100%;
 }
 .footer_dv h4 {
     color: #fcab0e;
-    font-family: roboto;
+    font-family: 'Raleway', sans-serif;
     font-weight: bold;
     margin-bottom: 30px;
     text-transform: uppercase;
@@ -173,4 +182,7 @@
     line-height: 20px;
     margin: 0 0 15px;
     text-align: justify;
+}
+.fa{
+    padding: 0px 10px;
 }
