@@ -1,7 +1,11 @@
 {% extends "::layout.html.twig" %}
 
 {% block Wcsplatform_body %}
-    <div class="jumbotron">
-        <h1><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Hello, world!</h1>
-    </div>
+
+<div id="contenu">
+<!-- Single button -->
+<div class="btn-group">
+    <a class="btn" id="bouton" href="{{ path('questions_new') }}">Poser une question !</a>
+</div>
+</div>
 {% endblock %}

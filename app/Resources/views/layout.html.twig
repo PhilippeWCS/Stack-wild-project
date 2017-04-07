@@ -5,9 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}OC Plateforme{% endblock %}</title>
+    <title>{% block title %}Plateforme Wild Exchange{% endblock %}</title>
 
     {% block stylesheets %}
+        <link type="text/css" rel="stylesheet" media="screen" href="{{ asset('css/stylesheet.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Josefin+Sans|Questrial|Raleway|Titillium+Web" rel="stylesheet">
         <link type="text/css" rel="stylesheet" media="screen" href="{{ asset('css/bootstrap.css') }}">
         <link type="text/css" rel="stylesheet" media="screen" href="{{ asset('bundles/bmatznerfontawesome/css/font-awesome.min.css') }}" />
     {% endblock %}
@@ -15,59 +17,91 @@
 
 <body>
 
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Brand</a>
-            </div>
+<nav class="navbar navbar-default navbar-inverse"  id="header" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Logo Wild Exchange</a>
+        </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li id="font"><a href="#">Questions</a></li>
+                <li class="dropdown" id="font">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tags <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+                <li id="font"><a href="#">Utilisateurs</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Rechercher</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><p class="navbar-text">Rejoignez-nous !</p></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdown_login"><b>Login</b> <span class="caret"></span></a>
+                    <ul id="login-dp" class="dropdown-menu">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Login via
+                                    <div class="social-buttons">
+                                        <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                                        <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                                    </div>
+                                    or
+                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputEmail2">Email</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputPassword2">Mot de passe</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                            <div class="help-block text-right"><a href="">Mot de passe oublié ?</a></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-block">Sign in</button>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> Restez connecté
+                                            </label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="bottom text-center" id="bottom">
+                                    Nouveau visiteur? <a href="#"><b>Rejoignez-nous</b></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+
+
+</nav>
+
     
     <div class="headerImage">
         <img class="img-responsive" src="{{ asset('img/shutterstock_326764691.jpg') }}">
@@ -77,15 +111,56 @@
 
     {% endblock %}
 
-    <footer class="text-center">
-        <i class="fa fa-facebook-official fa-4x" aria-hidden="true"></i>
-        <i class="fa fa-twitter fa-4x" aria-hidden="true"></i>
-        <i class="fa fa-linkedin fa-4x" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play fa-4x" aria-hidden="true"></i>
-        <i class="fa fa-instagram fa-4x" aria-hidden="true"></i>
-        <i class="fa fa-github fa-4x" aria-hidden="true"></i>
-    </footer>
+<section class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4  col-md-4 col-sm-4">
+                <div class="footer_dv">
+                    <h4>Liens Utiles</h4>
+                    <ul>
+                        <li class="line_rv"><a href="canon-printer-support.php">Canon Printer Support</a></li>
 
+                        <li><a href="hp-printer-support.php">Hp printer Support</a></li>
+                        <li><a href="dell-printer-support.php">Dell Printer Support</a></li>
+                        <li><a href="epson-printer-support.php">Epson printer Support</a></li>
+                        <li><a href="samsung-printer-support.php">Samsung Printer Support</a></li>
+                        <li><a href="lexmark-printer-support.php">Lexmark Printer Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4  col-md-4 col-sm-4">
+                <div class="footer_dv">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="tosiba-printer-support.php">Toshiba Printer Support</a></li>
+                        <li><a href="panasonic-printer-support.php">Panasonic Printer Support</a></li>
+                        <li><a href="xerox-printer-support.php">Xerox Printer Support</a></li>
+                        <li><a href="brother-printer-support.php">Brother printer support</a></li>
+                        <li><a href="zebra-printer-support.php">Zebra printer support</a></li>
+                        <li><a href="lenovo-printer-support.php">Lenovo printer Support</a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4  col-md-4 col-sm-4">
+                <div class="footer_dv">
+                    <center>
+                    <h4>Contactez-nous</h4>
+
+                    <i class="fa fa-inverse fa-facebook-official fa-2x" aria-hidden="true"></i><br/>
+                    <i class="fa fa-inverse fa-twitter fa-2x" aria-hidden="true"></i><br/>
+                    <i class="fa fa-inverse fa-linkedin fa-2x" aria-hidden="true"></i><br/>
+                    <i class="fa fa-inverse fa-youtube-play fa-2x" aria-hidden="true"></i><br/>
+                    <i class="fa fa-inverse fa-instagram fa-2x" aria-hidden="true"></i><br/>
+                    <i class="fa fa-inverse fa-github fa-2x" aria-hidden="true"></i>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
     {% block javascripts %}
         <script src="{{ asset('js/jquery.js') }}"></script>
         <script src="{{ asset('js/bootstrap.js') }}"></script>
