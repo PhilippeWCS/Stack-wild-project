@@ -24,6 +24,10 @@
 #font a:hover{
     color: black;
 }
+.img-responsive{
+    margin-top: -40px;
+}
+
 #dropdown_login a{
     background-color:#35383a;
 }
@@ -103,6 +107,8 @@
 #contenu{
     background-color:#35383a;
     height: 700px;
+    color: white;
+    font-family: 'Raleway', sans-serif;
 }
 #bouton{
     background-color:#1fa597;
@@ -111,8 +117,18 @@
     margin-left: 40px;
     margin-top: 40px;
 }
+#contenu h1{
+    margin: 0 0;
+    padding: 10px 10px;
+}
+.formulaire{
+    width: 90%;
+    margin-left:40px;
+}
+#questions{
+    margin-top: 40px;
 
-
+}
 /************************************************\
 ==================================================
 3. Footer
