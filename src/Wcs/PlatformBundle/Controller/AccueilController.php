@@ -10,7 +10,7 @@ namespace Wcs\PlatformBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class Accueil extends Controller
+class AccueilController extends Controller
 {
     public function indexAction()
     {
