@@ -114,9 +114,15 @@ swiftmailer:
 
 # FOSUser Configuration
 fos_user:
+    use_username_form_type: false
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
     user_class: Wcs\PlatformBundle\Entity\User
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
+    registration:
+        form:
+            type: Wcs\PlatformBundle\Form\RegistrationType
+        confirmation:
+            enabled: true

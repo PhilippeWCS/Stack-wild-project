@@ -5,6 +5,7 @@ namespace Wcs\PlatformBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -34,6 +35,7 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=100)
+     * @Assert\NotBlank()
      */
     private $nom;
 
@@ -41,6 +43,7 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=100)
+     * @Assert\NotBlank()
      */
     private $prenom;
 
@@ -108,6 +111,12 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setEmail($email)
+    {
+        parent::setEmail($email);
+        $this->setUsername($email);
     }
 
     /**

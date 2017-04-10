@@ -186,3 +186,7 @@
 .fa{
     padding: 0px 10px;
 }
+
+.user-modal{
+    display: block;
+}
