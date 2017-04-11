@@ -1,0 +1,26 @@
+{% extends "WcsPlatformBundle:Default:index.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block Wcsplatform_modal %}
+    <div class="modal user-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Inscription</h4>
+                </div>
+                <div class="modal-body">
+                    {% block fos_user_content %}
+                        <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+                        {% if targetUrl %}
+                            <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+                        {% endif %}
+                        <div class="form-group text-right">
+                            <a class="btn btn-danger" href="{{ path('wcs_platform_homepage') }}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Fermer</a>
+                        </div>
+                    {% endblock %}
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+{% endblock %}
