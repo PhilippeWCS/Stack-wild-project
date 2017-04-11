@@ -14,7 +14,7 @@
                         {% if error %}
                             <div class="alert alert-danger" role="alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                         {% endif %}
-                        <form class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
+                        <form class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post" autocomplete="off">
                             {% if csrf_token %}
                                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                             {% endif %}
@@ -43,6 +43,7 @@
                                 <a class="btn btn-danger" href="{{ path('wcs_platform_homepage') }}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Annuler</a>
                                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Connexion</button>
                             </div>
+                            <a href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié ?</a>
                         </form>
                     {% endblock %}
                 </div>
