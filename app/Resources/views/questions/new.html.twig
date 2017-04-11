@@ -1,0 +1,21 @@
+{% extends "::layout.html.twig" %}
+
+{% block Wcsplatform_body  %}
+    <div id="contenu">
+    <h1>Pose ta question</h1>
+    <div class="formulaire">
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    </div>
+    <button class="btn" id="bouton" type="submit" value="Poste-moi">Poste-moi</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('questions_index') }}"><button class="btn" id="bouton" type="submit" value="">Retour aux questions</button></a>
+
+
+</div>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,190 @@
+<?php
+
+namespace Wcs\PlatformBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Formulaire des Questions
+ *
+ * @ORM\Table(name="questions")
+ * @ORM\Entity(repositoryClass="Wcs\PlatformBundle\Repository\QuestionsRepository")
+ */
+class Questions
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Intitule_question", type="string", length=255)
+     */
+    private $intituleQuestion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Contenu", type="string", length=255)
+     */
+    private $contenu;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Lien_image", type="string", length=255, nullable=true)
+     */
+    private $lienImage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Statut", type="string", length=255, nullable=true)
+     */
+    private $statut;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="idUsers", type="integer", nullable=true)
+     */
+    private $idUsers;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set intituleQuestion
+     *
+     * @param string $intituleQuestion
+     *
+     * @return Questions
+     */
+    public function setIntituleQuestion($intituleQuestion)
+    {
+        $this->intituleQuestion = $intituleQuestion;
+
+        return $this;
+    }
+
+    /**
+     * Get intituleQuestion
+     *
+     * @return string
+     */
+    public function getIntituleQuestion()
+    {
+        return $this->intituleQuestion;
+    }
+
+    /**
+     * Set contenu
+     *
+     * @param string $contenu
+     *
+     * @return Questions
+     */
+    public function setContenu($contenu)
+    {
+        $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    /**
+     * Get contenu
+     *
+     * @return string
+     */
+    public function getContenu()
+    {
+        return $this->contenu;
+    }
+
+    /**
+     * Set lienImage
+     *
+     * @param string $lienImage
+     *
+     * @return Questions
+     */
+    public function setLienImage($lienImage)
+    {
+        $this->lienImage = $lienImage;
+
+        return $this;
+    }
+
+    /**
+     * Get lienImage
+     *
+     * @return string
+     */
+    public function getLienImage()
+    {
+        return $this->lienImage;
+    }
+
+    /**
+     * Set statut
+     *
+     * @param string $statut
+     *
+     * @return Questions
+     */
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Get statut
+     *
+     * @return string
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+
+    /**
+     * Set idUsers
+     *
+     * @param integer $idUsers
+     *
+     * @return Questions
+     */
+    public function setIdUsers($idUsers)
+    {
+        $this->idUsers = $idUsers;
+
+        return $this;
+    }
+
+    /**
+     * Get idUsers
+     *
+     * @return int
+     */
+    public function getIdUsers()
+    {
+        return $this->idUsers;
+    }
+}
+
