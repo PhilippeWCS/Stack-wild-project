@@ -5,8 +5,9 @@
 \************************************************/
 #header{
     background: #1fa597;
+    z-index: 1000;
     position: fixed;
-    margin-top:50px;
+    margin-top:-60px;
     width: 100%;
     border: none;
     box-shadow: 0px 1px 0px #35383a;
@@ -30,17 +31,13 @@
 #font a:hover, .navbar-inverse .navbar-nav > li > a:hover{
     color: black;
 }
-.img-responsive{
+.logo{
     margin-top: -50px;
 }
-
-#dropdown_login a{
-    background-color:#35383a;
+.headerImage{
+    z-index:999;
+    margin-top:60px;
 }
-#dropdown_login a:hover{
-    background-color:#35383a;
-}
-
 .modal-content{
     width: 350px;
     margin-left:90%;
@@ -52,24 +49,6 @@
     background-color: transparent;
 
 }
-/*#login-dp .help-block{
-    font-size:12px
-}
-#login-dp {
-    background-color:rgba(255,255,255,.8);
-    border-top:1px solid #ddd;
-    clear:both;
-    padding:14px;
-}
-#login-dp .social-buttons{
-    margin:12px 0
-}
-#login-dp .social-buttons a{
-    width: 49%;
-}
-#login-dp .form-group {
-    margin-bottom: 10px;
-}*/
 .btn-primary {
     color: #fff;
     background-color:#1fa597;
@@ -80,14 +59,8 @@
     background-color:#80cbc4;
     border:1px solid #80cbc4;
 }
-/*.btn-tw{
-    color: #fff;
-    background-color:#80cbc4;
-}
-.btn-tw:hover{
-    color: #fff;
-    background-color:#58c4b8;
-}*/
+
+
 .btn-block{
     color: #fff;
     background-color:#58c4b8;
@@ -99,9 +72,7 @@
     padding:14px;
 }
 
-.headerImage{
-    margin-top: -20px;
-}
+
 @media(max-width:768px){
     .modal-content{
         width: 300px;
@@ -113,10 +84,8 @@
 2. Question
 ==================================================
 \************************************************/
-#contenu{
+body{
     background-color:#35383a;
-
-    height: 700px;
     color: white;
     font-family: 'Raleway', sans-serif;
 }
@@ -139,6 +108,17 @@
     margin-top: 40px;
 
 }
+a{
+    color:white;
+}
+.bouton-question {
+
+    background-color:#1fa597;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+
 /************************************************\
 ==================================================
 3. Footer
