@@ -110,9 +110,10 @@ body{
 }
 a{
     color:white;
+    text-decoration: none;
 }
 .bouton-question {
-
+    margin-right: 2px;
     background-color:#1fa597;
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
