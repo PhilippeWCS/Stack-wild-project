@@ -2,5 +2,9 @@ wcs_platform:
     resource: "@WcsPlatformBundle/Resources/config/routing.yml"
     prefix:   /
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

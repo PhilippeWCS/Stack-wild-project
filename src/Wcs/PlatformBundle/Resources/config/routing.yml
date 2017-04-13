@@ -1,6 +1,13 @@
 wcs_platform_questions:
     resource: "@WcsPlatformBundle/Resources/config/routing/questions.yml"
     prefix:   /questions
+<<<<<<< Updated upstream
+=======
+
+wcs_platform_homepage:
+    path:     /
+    defaults: { _controller: WcsPlatformBundle:Questions:index }
+>>>>>>> Stashed changes
 
 wcs_platform_homepage:
     path:     /
@@ -9,5 +16,3 @@ wcs_platform_homepage:
 wcs_platform_homepage:
     path:     /
     defaults: { _controller: WcsPlatformBundle:Accueil:index }
-
-
