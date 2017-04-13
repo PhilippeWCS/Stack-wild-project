@@ -9,5 +9,3 @@ wcs_platform_homepage:
 wcs_platform_homepage:
     path:     /
     defaults: { _controller: WcsPlatformBundle:Accueil:index }
-
-
