@@ -1,0 +1,31 @@
+{% extends "WcsPlatformBundle:Default:index.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block Wcsplatform_modal %}
+    <div class="modal user-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Mot de passe oublié</h4>
+                </div>
+                <div class="modal-body">
+                    {% block fos_user_content %}
+                        <form class="form-horizontal" action="{{ path('fos_user_resetting_send_email') }}" method="post" autocomplete="off">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="username">Email</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="text" id="username" name="username" required="required" />
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <a class="btn btn-danger" href="{{ path('wcs_platform_homepage') }}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Fermer</a>
+                                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Envoyer</button>
+                            </div>
+                        </form>
+                    {% endblock %}
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+{% endblock %}
