@@ -9,11 +9,11 @@
                     <div class="v-align box" id="navigation">
                         <div class="navi">
                             <ul>
-                                <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span>Interesting</span></a></li>
-                                <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i><span>Featured</span></a></li>
-                                <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Week</span></a></li>
-                                <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span>Month</span></a></li>
-                                <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><span>Users</span></a></li>
+                                <li class="active"><a href="#"><i class="fa fa-star" aria-hidden="true"></i><span>Interesting</span></a></li>
+                                <li><a href="#"><i class="fa fa-gears" aria-hidden="true"></i><span>Featured</span></a></li>
+                                <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><span>Week</span></a></li>
+                                <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><span>Month</span></a></li>
+                                <li><a href="#"><i class="fa fa-users" aria-hidden="true"></i><span>Users</span></a></li>
                                 <li><a href="{{ path('questions_new') }}"><i class="fa fa-quora" aria-hidden="true"></i><span>Posez une question</span></a></li>
                             </ul>
                         </div>
@@ -30,33 +30,28 @@
 -->
         <div class="col-xs-9">
             <table class="table">
-            <!-- <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Intitulequestion</th>
-                    <th>Contenu</th>
-                    <th>Lienimage</th>
-                    <th>Statut</th>
-                    <th>Idusers</th>
-                    <th>Actions</th
-                </tr>
-            </thead>-->
+                 <thead>
+                     <tr>
+                        <th>Vote</th>
+                        <th>Vue</th>
+                        <th>Réponse</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+
+                     </tr>
+                </thead>
                 <tbody>
                     {% for question in questions %}
                         <tr>
+                            <td></td>
+                            <td></td>
+                            <td><img class="chevron" width="10%" alt="chevron" src="{{ asset('img/chevron-droit.png') }}"> 3 <img class="chevron" width="10%" alt="chevron" src="{{ asset('img/chevron-gauche.png') }}"></td>
                             <td><a href="{{ path('questions_show', { 'id': question.id }) }}">{{ question.id }} </a></td>
                             <td>{{ question.intituleQuestion }}</td>
                             <td>{{ question.contenu }}</td>
                             <td>{{ question.lienImage }}</td>
-
-                    <!--  <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('questions_show', { 'id': question.id }) }}">show</a>
-                            </li>
-
-                        </ul>
-                    </td>-->
                          </tr>
                     {% endfor %}
                 </tbody>
