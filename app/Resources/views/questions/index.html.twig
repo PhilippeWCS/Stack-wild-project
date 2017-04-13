@@ -2,15 +2,13 @@
 
     {% block Wcsplatform_body %}
 
-        <div id="contenu">
-            <!-- Single button -->
-            <div class="col-sm-4">
-                <a class="btn" id="bouton" href="{{ path('questions_new') }}">Poser une question !</a>
-            </div>
 
-            <div class="col-sm-8" id="questions">
+            <div class="nav nav-tabs" id="questions">
+                <li role="presentation" class="bouton-question"><a href="{{ path('questions_new') }}">Poser une question</a></li>
+                <li role="presentation"><a href="#">Critère 1</a></li>
+                <li role="presentation"><a href="#">Critère 2</a></li>
+                <li role="presentation"><a href="#">Critère 3</a></li>
 
-        <h1></h1>
 
         <table class="table">
             <!-- <thead>
@@ -46,7 +44,6 @@
             {% endfor %}
             </tbody>
         </table>
-                <a href="{{ path('questions_new') }}"><button class="btn" id="bouton" type="submit" value="">Poser une nouvelle question</button></a>
-        </div>
-        </div>
+
+            </div>
     {% endblock %}
