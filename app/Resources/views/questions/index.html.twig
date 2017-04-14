@@ -2,48 +2,61 @@
 
     {% block Wcsplatform_body %}
 
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="display-table">
+                <div class="display-table-row">
+                    <div class="v-align box" id="navigation">
+                        <div class="navi">
+                            <ul>
+                                <li class="active"><a href="#"><i class="fa fa-star" aria-hidden="true"></i><span>Préférences</span></a></li>
+                                <li><a href="#"><i class="fa fa-gears" aria-hidden="true"></i><span>Top 20</span></a></li>
+                                <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><span>Question du mois</span></a></li>
+                                <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><span>... de la semaine</span></a></li>
+                                <li><a href="#"><i class="fa fa-users" aria-hidden="true"></i><span>Utilisateurs</span></a></li>
+                                <li><a href="{{ path('questions_new') }}"><i class="fa fa-quora" aria-hidden="true"></i><span>Posez une question</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <div class="nav nav-tabs" id="questions">
+        <!--  <div class="nav nav-tabs" id="questions">
                 <li role="presentation" class="bouton-question"><a href="{{ path('questions_new') }}">Poser une question</a></li>
                 <li role="presentation"><a href="#">Critère 1</a></li>
                 <li role="presentation"><a href="#">Critère 2</a></li>
                 <li role="presentation"><a href="#">Critère 3</a></li>
+-->
+        <div class="col-xs-9">
+            <table class="table">
+                 <thead>
+                     <tr>
+                        <th>Vote</th>
+                        <th>Vue</th>
+                        <th>Réponse</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
 
-
-        <table class="table">
-            <!-- <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Intitulequestion</th>
-                    <th>Contenu</th>
-                    <th>Lienimage</th>
-                    <th>Statut</th>
-                    <th>Idusers</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>-->
-            <tbody>
-            {% for question in questions %}
-
-                    <tr>
-                    <td><a href="{{ path('questions_show', { 'id': question.id }) }}">{{ question.id }} </a></td>
-                    <td>{{ question.intituleQuestion }}</td>
-                    <td>{{ question.contenu }}</td>
-                    <td>{{ question.lienImage }}</td>
-
-                    <!--  <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('questions_show', { 'id': question.id }) }}">show</a>
-                            </li>
-
-                        </ul>
-                    </td>-->
+                     </tr>
+                </thead>
+                <tbody>
+                    {% for question in questions %}
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><img class="chevron" width="10%" alt="chevron" src="{{ asset('img/chevron-droit.png') }}"> 3 <img class="chevron" width="10%" alt="chevron" src="{{ asset('img/chevron-gauche.png') }}"></td>
+                            <td><a href="{{ path('questions_show', { 'id': question.id }) }}">{{ question.id }} </a></td>
+                            <td>{{ question.intituleQuestion }}</td>
+                            <td>{{ question.contenu }}</td>
+                            <td>{{ question.lienImage }}</td>
                          </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-            {% endfor %}
-            </tbody>
-        </table>
-
-            </div>
     {% endblock %}
