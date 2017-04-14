@@ -97,28 +97,4 @@ class Reponses
     {
         return $this->lienImage;
     }
-
-    /**
-     * Set questions
-     *
-     * @param \Wcs\PlatformBundle\Entity\Questions $questions
-     *
-     * @return Reponses
-     */
-    public function setQuestions(\Wcs\PlatformBundle\Entity\Questions $questions = null)
-    {
-        $this->questions = $questions;
-
-        return $this;
-    }
-
-    /**
-     * Get questions
-     *
-     * @return \Wcs\PlatformBundle\Entity\Questions
-     */
-    public function getQuestions()
-    {
-        return $this->questions;
-    }
 }

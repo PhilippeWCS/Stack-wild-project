@@ -1,0 +1,3 @@
+ $(".SelectTagMenu").select2();
+
+
