@@ -1,153 +1,154 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
-<html>
+    <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Plateforme Wild Exchange{% endblock %}</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Plateforme Wild Exchange{% endblock %}</title>
 
-    {% block stylesheets %}
-        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Josefin+Sans|Questrial|Raleway|Titillium+Web" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" media="screen" href="{{ asset('css/bootstrap.css') }}">
-        <link type="text/css" rel="stylesheet" media="screen" href="{{ asset('bundles/bmatznerfontawesome/css/font-awesome.min.css') }}" />
-        <link type="text/css" rel="stylesheet" media="screen" href="{{ asset('css/stylesheet.css') }}">
+        {% block stylesheets %}
+            <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Josefin+Sans|Questrial|Raleway|Titillium+Web" rel="stylesheet">
+            <link type="text/css" rel="stylesheet" media="screen" href="{{ asset('css/bootstrap.css') }}">
+            <link type="text/css" rel="stylesheet" media="screen" href="{{ asset('bundles/bmatznerfontawesome/css/font-awesome.min.css') }}" />
+            <link type="text/css" rel="stylesheet" media="screen" href="{{ asset('css/stylesheet.css') }}">
+            <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        {% endblock %}
+    </head>
+
+    <body>
+
+    {% block Wcsplatform_modal %}
+
     {% endblock %}
-</head>
 
-<body>
+    <nav class="navbar navbar-default navbar-inverse"  id="header" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path('wcs_platform_homepage') }}"><img class="img-responsive logo" width="55%" alt="logo" src="{{ asset('img/logo_wildexchange.png')  }}"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
 
-{% block Wcsplatform_modal %}
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li id="font"><a href="#">Catégories</a></li>
+                    <li id="font"><a href="#">Utilisateurs</a></li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Rechercher">
+                    </div>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ app.user.prenom }} {{ app.user.nom }} <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Profil</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li><a href="{{ path("fos_user_registration_register") }}">S'inscrire</a></li>
+                        <li><a href="{{ path("fos_user_security_login") }}">Se connecter</a></li>
+                    {% endif %}
+                </ul>
+            </div><!-- /.navbar-collapse -->
+    </nav>
 
-{% endblock %}
 
-<nav class="navbar navbar-default navbar-inverse"  id="header" role="navigation">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ path('wcs_platform_homepage') }}"><img class="img-responsive" width="55%" alt="Logo" src="{{ asset('img/logo_wildexchange.png')  }}"></a>
+        <div class="headerImage">
+            <img class="img-responsive" src="{{ asset('img/shutterstock_326764691.jpg') }}">
+        </div>
+        
+        <div class="container" id="contenu">
+        {% block Wcsplatform_body %}
+
+        {% endblock %}
+        </div>
+    <section class="footer">
+        <div class="col-lg-12  col-md-12 col-sm-12">
+            <div class="footer_dv">
+                <center>
+                    <h4>Contactez-nous</h4>
+                    <a href="https://www.facebook.com/wildcodeschool/" target="_blank"><i class="fa fa-inverse fa-facebook-official fa-2x" aria-hidden="true"></i></a>
+                    <a href="https://twitter.com/wildcodeschool" target="_blank"><i class="fa fa-inverse fa-twitter fa-2x" aria-hidden="true"></i></a>
+                    <a href="https://twitter.com/wildcodeschool" target="_blank"><i class="fa fa-inverse fa-linkedin fa-2x" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/channel/UCi99G_0QPx5sYsK8zdvQzfw" target="_blank"><i class="fa fa-inverse fa-youtube-play fa-2x" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/wildcodeschool/" target="_blank"><i class="fa fa-inverse fa-instagram fa-2x" aria-hidden="true"></i></a>
+                    <a href="https://github.com/WildCodeSchool" target="_blank"><i class="fa fa-inverse fa-github fa-2x" aria-hidden="true"></i></a>
+                </center> <br/> <br/>
+            </div>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="container">
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li id="font"><a href="#">Catégories</a></li>
-                <li id="font"><a href="#">Utilisateurs</a></li>
-            </ul>
-            <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Rechercher">
-                </div>
-                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ app.user.prenom }} {{ app.user.nom }} <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Profil</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+            <div class="row">
+                <div class="col-lg-4  col-md-4 col-sm-4">
+                    <div class="footer_dv">
+                        <h4>La Wild Code School</h4>
+                        <ul>
+                            <li class="line_rv"><a href="https://wildcodeschool.fr/questcequela-wildcodeschool/">Le concept</a></li>
+
+                            <li><a href="https://wildcodeschool.fr/candidat/">Comment candidater ?</a></li>
+                            <li><a href="https://wildcodeschool.fr/nos-formations-initiation-approfondissement-developpeur/">Notre programme </a></li>
+                            <li><a href="https://wildcodeschool.fr/faq/">FAQ</a></li>
                         </ul>
-                    </li>
-                {% else %}
-                    <li><a href="{{ path("fos_user_registration_register") }}">S'inscrire</a></li>
-                    <li><a href="{{ path("fos_user_security_login") }}">Se connecter</a></li>
-                {% endif %}
-            </ul>
-        </div><!-- /.navbar-collapse -->
-</nav>
+                    </div>
+                </div>
+                <div class="col-lg-4  col-md-4 col-sm-4">
+                    <div class="footer_dv">
+                        <h4>Nos Ecoles</h4>
+                        <ul>
+                            <li><a href="https://wildcodeschool.fr/la-loupe/">La Loupe</a></li>
+                            <li><a href="https://wildcodeschool.fr/fontainebleau/">Fontainebleau</a></li>
+                            <li><a href="https://wildcodeschool.fr/orleans/">Orléans</a></li>
+                            <li><a href="https://wildcodeschool.fr/bordeaux/">Bordeaux</a></li>
+                            <li><a href="https://wildcodeschool.fr/lyon/">Lyon</a></li>
+                            <li><a href="https://wildcodeschool.fr/toulouse/">Toulouse</a></li>
+                            <li><a href="https://wildcodeschool.fr/lille/">Lille</a></li>
+                            <li><a href="https://wildcodeschool.fr/strasbourg/">Strasbourg</a></li>
+                            <li><a href="https://wildcodeschool.fr/paris/">Paris</a></li>
 
-    
-    <div class="headerImage">
-        <img class="img-responsive" src="{{ asset('img/shutterstock_326764691.jpg') }}">
-    </div>
 
-    {% block Wcsplatform_body %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4  col-md-4 col-sm-4">
+                    <div class="footer_dv">
+                        <h4>A propos</h4>
+                        <ul>
+                            <li><a href="tosiba-printer-support.php">Nous contacter</a></li>
+                            <li><a href="panasonic-printer-support.php">Notre Equipe</a></li>
+                            <li><a href="xerox-printer-support.php">Offres d'emploi</a></li>
+                            <li><a href="brother-printer-support.php">Recruter un développeur</a></li>
+                            <li><a href="zebra-printer-support.php">Développer un projet</a></li>
+                            <li><a href="lenovo-printer-support.php">Nous soutenir</a></li>
 
-    {% endblock %}
 
-<section class="footer">
-    <div class="col-lg-12  col-md-12 col-sm-12">
-        <div class="footer_dv">
-            <center>
-                <h4>Contactez-nous</h4>
-                <i class="fa fa-inverse fa-facebook-official fa-2x" aria-hidden="true"></i>
-                <i class="fa fa-inverse fa-twitter fa-2x" aria-hidden="true"></i>
-                <i class="fa fa-inverse fa-linkedin fa-2x" aria-hidden="true"></i>
-                <i class="fa fa-inverse fa-youtube-play fa-2x" aria-hidden="true"></i>
-                <i class="fa fa-inverse fa-instagram fa-2x" aria-hidden="true"></i>
-                <i class="fa fa-inverse fa-github fa-2x" aria-hidden="true"></i>
-            </center> <br/> <br/>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
+    </section>
     </div>
+        {% block javascripts %}
+            <script src="{{ asset('js/jquery.js') }}"></script>
+            <script src="{{ asset('js/bootstrap.js') }}"></script>
+        {% endblock %}
 
-    <div class="container">
+    </body>
 
-        <div class="row">
-            <div class="col-lg-4  col-md-4 col-sm-4">
-                <div class="footer_dv">
-                    <h4>La Wild Code School</h4>
-                    <ul>
-                        <li class="line_rv"><a href="https://wildcodeschool.fr/questcequela-wildcodeschool/">Le concept</a></li>
-
-                        <li><a href="https://wildcodeschool.fr/candidat/">Comment candidater ?</a></li>
-                        <li><a href="https://wildcodeschool.fr/nos-formations-initiation-approfondissement-developpeur/">Notre programme </a></li>
-                        <li><a href="https://wildcodeschool.fr/faq/">FAQ</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4  col-md-4 col-sm-4">
-                <div class="footer_dv">
-                    <h4>Nos Ecoles</h4>
-                    <ul>
-                        <li><a href="https://wildcodeschool.fr/la-loupe/">La Loupe</a></li>
-                        <li><a href="https://wildcodeschool.fr/fontainebleau/">Fontainebleau</a></li>
-                        <li><a href="https://wildcodeschool.fr/orleans/">Orléans</a></li>
-                        <li><a href="https://wildcodeschool.fr/bordeaux/">Bordeaux</a></li>
-                        <li><a href="https://wildcodeschool.fr/lyon/">Lyon</a></li>
-                        <li><a href="https://wildcodeschool.fr/toulouse/">Toulouse</a></li>
-                        <li><a href="https://wildcodeschool.fr/lille/">Lille</a></li>
-                        <li><a href="https://wildcodeschool.fr/strasbourg/">Strasbourg</a></li>
-                        <li><a href="https://wildcodeschool.fr/paris/">Paris</a></li>
-
-
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4  col-md-4 col-sm-4">
-                <div class="footer_dv">
-                    <h4>A propos</h4>
-                    <ul>
-                        <li><a href="tosiba-printer-support.php">Nous contacter</a></li>
-                        <li><a href="panasonic-printer-support.php">Notre Equipe</a></li>
-                        <li><a href="xerox-printer-support.php">Offres d'emploi</a></li>
-                        <li><a href="brother-printer-support.php">Recruter un développeur</a></li>
-                        <li><a href="zebra-printer-support.php">Développer un projet</a></li>
-                        <li><a href="lenovo-printer-support.php">Nous soutenir</a></li>
-
-
-                    </ul>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-</section>
-</div>
-    {% block javascripts %}
-        <script src="{{ asset('js/jquery.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.js') }}"></script>
-    {% endblock %}
-
-</body>
-
-</html>
+    </html>

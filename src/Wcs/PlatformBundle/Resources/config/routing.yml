@@ -1,13 +1,11 @@
-#wcs_platform_questions:
-#    resource: "@WcsPlatformBundle/Resources/config/routing/questions.yml"
-#    prefix:   /questions
-
-#wcs_platform_homepage:
-#    path:     /
-#    defaults: { _controller: WcsPlatformBundle:Questions:index }
+wcs_platform_questions:
+    resource: "@WcsPlatformBundle/Resources/config/routing/questions.yml"
+    prefix:   /questions
 
 wcs_platform_homepage:
     path:     /
-    defaults: { _controller: WcsPlatformBundle:Accueil:index }
+    defaults: { _controller: WcsPlatformBundle:Questions:index }
 
-
+wcs_platform_reponses:
+    path:     /
+    defaults: { _controller: WcsPlatformBundle:Reponses:index }
