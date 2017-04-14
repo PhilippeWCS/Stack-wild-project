@@ -1,0 +1,24 @@
+reponses_index:
+    path:     /
+    defaults: { _controller: "WcsPlatformBundle:Reponses:index" }
+    methods:  GET
+
+reponses_show:
+    path:     /{id}/show
+    defaults: { _controller: "WcsPlatformBundle:Reponses:show" }
+    methods:  GET
+
+reponses_new:
+    path:     /new
+    defaults: { _controller: "WcsPlatformBundle:Reponses:new" }
+    methods:  [GET, POST]
+
+reponses_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WcsPlatformBundle:Reponses:edit" }
+    methods:  [GET, POST]
+
+reponses_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WcsPlatformBundle:Reponses:delete" }
+    methods:  DELETE

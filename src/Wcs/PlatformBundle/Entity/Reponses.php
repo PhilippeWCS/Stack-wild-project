@@ -24,14 +24,14 @@ class Reponses
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu", type="string", length=255)
+     * @ORM\Column(name="Contenu", type="string", length=255)
      */
     private $contenu;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lienImage", type="string", length=255, nullable=true)
+     * @ORM\Column(name="LienImage", type="string", length=255, nullable=true)
      */
     private $lienImage;
 

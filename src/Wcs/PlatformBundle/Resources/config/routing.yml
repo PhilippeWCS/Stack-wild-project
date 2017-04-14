@@ -7,5 +7,5 @@ wcs_platform_homepage:
     defaults: { _controller: WcsPlatformBundle:Questions:index }
 
 wcs_platform_reponses:
-    path:     /
-    defaults: { _controller: WcsPlatformBundle:Reponses:index }
+    resource: "@WcsPlatformBundle/Resources/config/routing/reponses.yml"
+    prefix:   /reponses
