@@ -52,7 +52,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ app.user.prenom }} {{ app.user.nom }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Profil</a></li>
+                                <li><a href="{{ path('fos_user_profile_edit') }}"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Profil</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
                             </ul>

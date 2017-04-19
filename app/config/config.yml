@@ -126,3 +126,6 @@ fos_user:
             type: Wcs\PlatformBundle\Form\RegistrationType
         confirmation:
             enabled: true
+    profile:
+        form:
+            type: Wcs\PlatformBundle\Form\ProfileType
