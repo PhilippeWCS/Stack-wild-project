@@ -53,6 +53,7 @@ assetic:
 
 parameters:
     locale: fr
+    profil_directory: '%kernel.root_dir%/../web/img/profil'
 
 framework:
     #esi: ~
