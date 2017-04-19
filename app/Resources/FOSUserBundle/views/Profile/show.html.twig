@@ -1,0 +1,7 @@
+{% extends "::layout.html.twig" %}
+
+{% block Wcsplatform_body %}
+    <p>{{ user.imgProfil }}</p>
+    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+{% endblock %}

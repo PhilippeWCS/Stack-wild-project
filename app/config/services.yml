@@ -11,3 +11,14 @@ services:
         class: WcsPlatformBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: wcs_platformbundle_registration }
+
+    app.profil_uploader:
+        class: Wcs\PlatformBundle\FileUploader
+        arguments: ['%profil_directory%']
+
+    app.doctrine_profil_listener:
+        class: Wcs\PlatformBundle\EventListener\ProfilUploadListener
+        arguments: ['@app.profil_uploader']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }

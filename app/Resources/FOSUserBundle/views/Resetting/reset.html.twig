@@ -9,7 +9,7 @@
                 </div>
                 <div class="modal-body">
                     {% block fos_user_content %}
-                        {{ form_start(form, {'method': 'post', 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': {'class': 'fos_user_registration_register', 'novalidate': 'novalidate'}}) }}
+                        {{ form_start(form, {'method': 'post', 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': {'class': 'fos_user_registration_register', 'novalidate': 'novalidate', 'autocomplete': 'off'}}) }}
                         {{ form_row(form.plainPassword) }}
                         <div class="form-group text-right">
                             <a class="btn btn-danger" href="{{ path('wcs_platform_homepage') }}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Annuler</a>
