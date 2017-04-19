@@ -13,10 +13,13 @@
     },
     "require": {
         "php": ">=5.3.9",
+        "bmatzner/fontawesome-bundle": "~4.7",
         "braincrafted/bootstrap-bundle": "~2.0",
         "components/jquery": "^3.2",
         "doctrine/doctrine-bundle": "~1.4",
         "doctrine/orm": "^2.4.8",
+        "egeloen/ckeditor-bundle": "^5.0",
+        "friendsofsymfony/user-bundle": "~2.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "^3.0.2",
@@ -25,9 +28,7 @@
         "symfony/swiftmailer-bundle": "~2.3,>=2.3.10",
         "symfony/symfony": "2.8.*",
         "twbs/bootstrap": "3.0.*",
-        "twig/twig": "^1.0||^2.0",
-        "bmatzner/fontawesome-bundle": "~4.7",
-        "friendsofsymfony/user-bundle":"~2.0"
+        "twig/twig": "^1.0||^2.0"
     },
 
     "require-dev": {

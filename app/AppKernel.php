@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
