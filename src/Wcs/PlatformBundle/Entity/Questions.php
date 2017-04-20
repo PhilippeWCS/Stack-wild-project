@@ -245,6 +245,7 @@ class Questions
         return $this->reponses;
     }
 
+    /**
      * Get nbVue
      *
      * @return integer
