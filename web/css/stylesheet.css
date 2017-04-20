@@ -292,3 +292,12 @@ a{
 .user-modal{
     display: block;
 }
+
+.form-row-hide{
+    display: none;
+}
+
+.quest_accueil
+{
+    border-bottom-style: solid;
+}

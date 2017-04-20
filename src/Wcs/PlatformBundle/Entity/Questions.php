@@ -38,16 +38,16 @@ class Questions
     /**
      * @var string
      *
-     * @ORM\Column(name="Lien_image", type="string", length=255, nullable=true)
-     */
-    private $lienImage;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="Statut", type="string", length=255, nullable=true)
      */
     private $statut;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Nb_vue", type="integer")
+     */
+    private $nbVue;
 
     /**
      * @var int
@@ -191,6 +191,7 @@ class Questions
     {
         return $this->idUsers;
     }
+
     /**
      * Constructor
      */
@@ -209,7 +210,18 @@ class Questions
     public function addReponse(\Wcs\PlatformBundle\Entity\Reponses $reponse)
     {
         $this->reponses[] = $reponse;
+    }
 
+    /**
+     * Set nbVue
+     *
+     * @param integer $nbVue
+     *
+     * @return Questions
+     */
+    public function setNbVue($nbVue)
+    {
+        $this->nbVue = $nbVue;
         return $this;
     }
 
@@ -231,5 +243,15 @@ class Questions
     public function getReponses()
     {
         return $this->reponses;
+    }
+
+     * Get nbVue
+     *
+     * @return integer
+     */
+    public function getNbVue()
+    {
+        return $this->nbVue;
+
     }
 }

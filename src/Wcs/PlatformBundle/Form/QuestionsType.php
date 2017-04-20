@@ -17,8 +17,7 @@ class QuestionsType extends AbstractType
     {
         $builder
             ->add('intituleQuestion')
-            ->add('contenu', TextareaType::class, array('label'=>'Votre message'))
-            ->add('lienImage', FileType::class);
+            ->add('contenu', TextareaType::class, array('label'=>'Votre message'));
     }
     
     /**

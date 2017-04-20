@@ -36,6 +36,11 @@ class User extends BaseUser
      *
      * @ORM\Column(name="nom", type="string", length=100)
      * @Assert\NotBlank()
+     * @Assert\Type("string")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 100,
+     * )
      */
     private $nom;
 
@@ -44,6 +49,11 @@ class User extends BaseUser
      *
      * @ORM\Column(name="prenom", type="string", length=100)
      * @Assert\NotBlank()
+     * @Assert\Type("string")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 100,
+     * )
      */
     private $prenom;
 
@@ -52,12 +62,13 @@ class User extends BaseUser
      *
      * @ORM\Column(name="img_profil", type="string", length=100, nullable=true)
      */
-    private $imgProfil;
+    private $imgProfil='profil_default.png';
 
     /**
      * @var string
      *
      * @ORM\Column(name="url_linkedin", type="string", length=255, nullable=true)
+     * @Assert\Url()
      */
     private $urlLinkedin;
 
@@ -65,6 +76,7 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="url_tweeter", type="string", length=255, nullable=true)
+     * @Assert\Url()
      */
     private $urlTweeter;
 
@@ -72,13 +84,15 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="url_github", type="string", length=255, nullable=true)
+     * @Assert\Url()
      */
     private $urlGithub;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="profil", type="string", length=10, nullable=true)
+     * @ORM\Column(name="profil", type="string", length=20, nullable=true)
+     * @Assert\Choice(callback = "getProfils")
      */
     private $profil;
 
@@ -86,6 +100,11 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="ville_ecole", type="string", length=100, nullable=true)
+     * @Assert\Type("string")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 100,
+     * )
      */
     private $villeEcole;
 
@@ -93,6 +112,11 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="emploi", type="string", length=100, nullable=true)
+     * @Assert\Type("string")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 100,
+     * )
      */
     private $emploi;
 
@@ -100,6 +124,10 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="entreprise", type="string", length=100, nullable=true)
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 100,
+     * )
      */
     private $entreprise;
 
@@ -176,9 +204,11 @@ class User extends BaseUser
      */
     public function setImgProfil($imgProfil)
     {
-        $this->imgProfil = $imgProfil;
+        if(isset($imgProfil) && !empty($imgProfil)){
+            $this->imgProfil = $imgProfil;
 
-        return $this;
+            return $this;
+        }
     }
 
     /**
@@ -285,6 +315,16 @@ class User extends BaseUser
     public function getProfil()
     {
         return $this->profil;
+    }
+
+    public static function getProfils()
+    {
+        return array(
+            '' => 'Sélectionner...',
+            'Elève' => 'Elève',
+            'Ancien élève' => 'Ancien élève',
+            'Staff formateur' => 'Staff formateur',
+            'Staff manager et autre' => 'Staff manager et autre');
     }
 
     /**

@@ -53,6 +53,7 @@ assetic:
 
 parameters:
     locale: fr
+    profil_directory: '%kernel.root_dir%/../web/img/profil'
 
 framework:
     #esi: ~
@@ -126,3 +127,6 @@ fos_user:
             type: Wcs\PlatformBundle\Form\RegistrationType
         confirmation:
             enabled: true
+    profile:
+        form:
+            type: Wcs\PlatformBundle\Form\ProfileType

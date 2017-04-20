@@ -12,6 +12,7 @@
             <link type="text/css" rel="stylesheet" media="screen" href="{{ asset('css/bootstrap.css') }}">
             <link type="text/css" rel="stylesheet" media="screen" href="{{ asset('bundles/bmatznerfontawesome/css/font-awesome.min.css') }}" />
             <link type="text/css" rel="stylesheet" media="screen" href="{{ asset('css/stylesheet.css') }}">
+            <link type="text/css" rel="stylesheet" media="screen" href="{{ asset('assets/vendor/bootstrap-markdown-editor/dist/css/bootstrap-markdown-editor.css') }}">
             <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         {% endblock %}
     </head>
@@ -52,7 +53,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ app.user.prenom }} {{ app.user.nom }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Profil</a></li>
+                                <li><a href="{{ path('fos_user_profile_edit') }}"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Profil</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
                             </ul>
@@ -147,6 +148,8 @@
         {% block javascripts %}
             <script src="{{ asset('js/jquery.js') }}"></script>
             <script src="{{ asset('js/bootstrap.js') }}"></script>
+            <script src="{{ asset('assets/vendor/ace-builds/src/ace.js') }}"></script>
+            <script src="{{ asset('assets/vendor/bootstrap-markdown-editor/dist/js/bootstrap-markdown-editor.js') }}"></script>
         {% endblock %}
 
     </body>
