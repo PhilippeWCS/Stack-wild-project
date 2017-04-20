@@ -94,4 +94,3 @@ class Reponses
         return $this->lienImage;
     }
 }
-

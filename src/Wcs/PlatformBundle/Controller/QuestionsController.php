@@ -59,6 +59,14 @@ class QuestionsController extends Controller
     {
         $deleteForm = $this->createDeleteForm($question);
 
+        $em = $this->getDoctrine()->getManager();
+        $quest = $em->getRepository('WcsPlatformBundle:Questions')->findOneById($question);
+        $NbVue = $quest->getNbVue();
+        $NbVue += 1;
+
+        $quest->setNbVue($NbVue);
+        $em->flush();
+
         return $this->render('questions/show.html.twig', array(
             'question' => $question,
             'delete_form' => $deleteForm->createView(),
