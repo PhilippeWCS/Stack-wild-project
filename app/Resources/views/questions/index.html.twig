@@ -22,40 +22,25 @@
             </div>
         </div>
 
-        <!--  <div class="nav nav-tabs" id="questions">
-                <li role="presentation" class="bouton-question"><a href="{{ path('questions_new') }}">Poser une question</a></li>
-                <li role="presentation"><a href="#">Critère 1</a></li>
-                <li role="presentation"><a href="#">Critère 2</a></li>
-                <li role="presentation"><a href="#">Critère 3</a></li>
--->
-        <div class="col-xs-9">
-            <table class="table">
-                 <thead>
-                     <tr>
-                        <th>Vote</th>
-                        <th>Vue</th>
-                        <th>Réponse</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-
-                     </tr>
-                </thead>
-                <tbody>
-                    {% for question in questions %}
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td><img class="chevron" width="10%" alt="chevron" src="{{ asset('img/chevron-droit.png') }}"> 3 <img class="chevron" width="10%" alt="chevron" src="{{ asset('img/chevron-gauche.png') }}"></td>
-                            <td><a href="{{ path('questions_show', { 'id': question.id }) }}">{{ question.id }} </a></td>
-                            <td>{{ question.intituleQuestion }}</td>
-                            <td>{{ question.contenu }}</td>
-                            <td>{{ question.lienImage }}</td>
-                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+        {% for question in questions %}
+        <div class="col-xs-9 quest_accueil">
+            <div class="col-xs-1">
+                <p>Votes</p>
+            </div>
+            <div class="col-xs-1">
+                <p>{{ question.nbVue }}</p>
+                <p>Vues</p>
+            </div>
+            <div class="col-xs-2">
+                <img class="chevron" width="10%" alt="chevron" src="{{ asset('img/chevron-droit.png') }}">
+                <span></span>
+                <img class="chevron" width="10%" alt="chevron" src="{{ asset('img/chevron-gauche.png') }}">
+                <p>Réponses</p>
+            </div>
+            <div class="col-xs-6">
+                <p><a href="{{ path('questions_show', { 'id': question.id }) }}">{{ question.intituleQuestion }} </a></p>
+            </div>
+            {% endfor %}
         </div>
     </div>
 

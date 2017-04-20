@@ -2,7 +2,6 @@
 
 namespace Wcs\PlatformBundle\Form;
 
-use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -18,11 +17,7 @@ class QuestionsType extends AbstractType
     {
         $builder
             ->add('intituleQuestion')
-           /* ->add('contenu', CKEditorType::class, array(
-                'label'=>'Votre message',
-                'config' => array('toolbar' => 'standard')
-            ))*/
-            ->add('lienImage', FileType::class);
+            ->add('contenu', TextareaType::class, array('label'=>'Votre message'));
     }
     
     /**

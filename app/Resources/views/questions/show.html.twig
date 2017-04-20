@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends "::layout.html.twig" %}
 
-{% block body %}
+{% block Wcsplatform_body %}
     <h1>Question</h1>
 
     <table>
@@ -15,11 +15,7 @@
             </tr>
             <tr>
                 <th>Contenu</th>
-                <td>{{ question.contenu }}</td>
-            </tr>
-            <tr>
-                <th>Lienimage</th>
-                <td>{{ question.lienImage }}</td>
+                <td id="test">{{ question.contenu }}</td>
             </tr>
             <tr>
                 <th>Statut</th>
@@ -45,4 +41,10 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+    <script src="{{ asset('js/showdown.js') }}"></script>
 {% endblock %}
