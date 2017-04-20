@@ -29,12 +29,18 @@ class Reponses
     private $contenu;
 
     /**
-     * @var string
      *
-     * @ORM\Column(name="lienImage", type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="user", inversedBy="reponses")
+     *
      */
-    private $lienImage;
+    private $user;
 
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="Questions", inversedBy="reponses")
+     *
+     */
+    private $question;
 
     /**
      * Get id
@@ -69,28 +75,53 @@ class Reponses
     {
         return $this->contenu;
     }
+    
 
     /**
-     * Set lienImage
+     * Set user
      *
-     * @param string $lienImage
+     * @param \Wcs\PlatformBundle\Entity\user $user
      *
      * @return Reponses
      */
-    public function setLienImage($lienImage)
+    public function setUser(\Wcs\PlatformBundle\Entity\user $user = null)
     {
-        $this->lienImage = $lienImage;
+        $this->user = $user;
 
         return $this;
     }
 
     /**
-     * Get lienImage
+     * Get user
      *
-     * @return string
+     * @return \Wcs\PlatformBundle\Entity\user
      */
-    public function getLienImage()
+    public function getUser()
     {
-        return $this->lienImage;
+        return $this->user;
+    }
+
+    /**
+     * Set question
+     *
+     * @param \Wcs\PlatformBundle\Entity\Questions $question
+     *
+     * @return Reponses
+     */
+    public function setQuestion(\Wcs\PlatformBundle\Entity\Questions $question = null)
+    {
+        $this->question = $question;
+
+        return $this;
+    }
+
+    /**
+     * Get question
+     *
+     * @return \Wcs\PlatformBundle\Entity\Questions
+     */
+    public function getQuestion()
+    {
+        return $this->question;
     }
 }

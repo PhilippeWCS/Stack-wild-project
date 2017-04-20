@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 
     <html>
 
@@ -64,18 +64,20 @@
                     {% endif %}
                 </ul>
             </div><!-- /.navbar-collapse -->
+        </div>
     </nav>
 
 
-        <div class="headerImage">
-            <img class="img-responsive" src="{{ asset('img/shutterstock_326764691.jpg') }}">
-        </div>
+    <div class="headerImage">
+        <img class="img-responsive" src="{{ asset('img/shutterstock_326764691.jpg') }}">
+    </div>
         
-        <div class="container" id="contenu">
+    <div class="container" id="contenu">
         {% block Wcsplatform_body %}
 
         {% endblock %}
-        </div>
+    </div>
+
     <section class="footer">
         <div class="col-lg-12  col-md-12 col-sm-12">
             <div class="footer_dv">
@@ -92,8 +94,8 @@
         </div>
 
         <div class="container">
-
             <div class="row">
+
                 <div class="col-lg-4  col-md-4 col-sm-4">
                     <div class="footer_dv">
                         <h4>La Wild Code School</h4>
@@ -106,6 +108,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <div class="col-lg-4  col-md-4 col-sm-4">
                     <div class="footer_dv">
                         <h4>Nos Ecoles</h4>
@@ -119,11 +122,10 @@
                             <li><a href="https://wildcodeschool.fr/lille/">Lille</a></li>
                             <li><a href="https://wildcodeschool.fr/strasbourg/">Strasbourg</a></li>
                             <li><a href="https://wildcodeschool.fr/paris/">Paris</a></li>
-
-
                         </ul>
                     </div>
                 </div>
+
                 <div class="col-lg-4  col-md-4 col-sm-4">
                     <div class="footer_dv">
                         <h4>A propos</h4>
@@ -134,23 +136,20 @@
                             <li><a href="brother-printer-support.php">Recruter un développeur</a></li>
                             <li><a href="zebra-printer-support.php">Développer un projet</a></li>
                             <li><a href="lenovo-printer-support.php">Nous soutenir</a></li>
-
-
                         </ul>
                     </div>
                 </div>
 
-
             </div>
         </div>
     </section>
-    </div>
-        {% block javascripts %}
-            <script src="{{ asset('js/jquery.js') }}"></script>
-            <script src="{{ asset('js/bootstrap.js') }}"></script>
-            <script src="{{ asset('assets/vendor/ace-builds/src/ace.js') }}"></script>
-            <script src="{{ asset('assets/vendor/bootstrap-markdown-editor/dist/js/bootstrap-markdown-editor.js') }}"></script>
-        {% endblock %}
+
+    {% block javascripts %}
+        <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.js') }}"></script>
+        <script src="{{ asset('assets/vendor/ace-builds/src/ace.js') }}"></script>
+        <script src="{{ asset('assets/vendor/bootstrap-markdown-editor/dist/js/bootstrap-markdown-editor.js') }}"></script>
+    {% endblock %}
 
     </body>
 

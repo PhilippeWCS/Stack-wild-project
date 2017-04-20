@@ -47,15 +47,19 @@ class Questions
      *
      * @ORM\Column(name="Nb_vue", type="integer")
      */
-    private $nbVue;
+    private $nbVue = 0;
 
     /**
-     * @var int
      *
-     * @ORM\Column(name="idUsers", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="questions")
      */
-    private $idUsers;
+    private $user;
 
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="Reponses", mappedBy="question")
+     */
+    private $reponses;
 
     /**
      * Get id
@@ -164,27 +168,50 @@ class Questions
     }
 
     /**
-     * Set idUsers
+     * Set nbVue
      *
-     * @param integer $idUsers
+     * @param integer $nbVue
      *
      * @return Questions
      */
-    public function setIdUsers($idUsers)
+    public function setNbVue($nbVue)
     {
-        $this->idUsers = $idUsers;
+        $this->nbVue = $nbVue;
 
         return $this;
     }
 
     /**
-     * Get idUsers
+     * Get nbVue
      *
-     * @return int
+     * @return integer
      */
-    public function getIdUsers()
+    public function getNbVue()
     {
-        return $this->idUsers;
+        return $this->nbVue;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Wcs\PlatformBundle\Entity\User $user
+     *
+     * @return Questions
+     */
+    public function setUser(\Wcs\PlatformBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Wcs\PlatformBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
-
