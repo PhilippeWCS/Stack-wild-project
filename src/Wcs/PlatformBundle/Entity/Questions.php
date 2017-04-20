@@ -47,15 +47,19 @@ class Questions
      *
      * @ORM\Column(name="Nb_vue", type="integer")
      */
-    private $nbVue;
+    private $nbVue = 0;
 
     /**
-     * @var int
      *
-     * @ORM\Column(name="idUsers", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="questions")
      */
-    private $idUsers;
+    private $user;
 
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="Reponses", mappedBy="question")
+     */
+    private $reponses;
 
     /**
      * Get id
@@ -164,30 +168,6 @@ class Questions
     }
 
     /**
-     * Set idUsers
-     *
-     * @param integer $idUsers
-     *
-     * @return Questions
-     */
-    public function setIdUsers($idUsers)
-    {
-        $this->idUsers = $idUsers;
-
-        return $this;
-    }
-
-    /**
-     * Get idUsers
-     *
-     * @return int
-     */
-    public function getIdUsers()
-    {
-        return $this->idUsers;
-    }
-
-    /**
      * Set nbVue
      *
      * @param integer $nbVue
@@ -209,5 +189,70 @@ class Questions
     public function getNbVue()
     {
         return $this->nbVue;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Wcs\PlatformBundle\Entity\User $user
+     *
+     * @return Questions
+     */
+    public function setUser(\Wcs\PlatformBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Wcs\PlatformBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->reponses = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add reponse
+     *
+     * @param \Wcs\PlatformBundle\Entity\Reponses $reponse
+     *
+     * @return Questions
+     */
+    public function addReponse(\Wcs\PlatformBundle\Entity\Reponses $reponse)
+    {
+        $this->reponses[] = $reponse;
+
+        return $this;
+    }
+
+    /**
+     * Remove reponse
+     *
+     * @param \Wcs\PlatformBundle\Entity\Reponses $reponse
+     */
+    public function removeReponse(\Wcs\PlatformBundle\Entity\Reponses $reponse)
+    {
+        $this->reponses->removeElement($reponse);
+    }
+
+    /**
+     * Get reponses
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReponses()
+    {
+        return $this->reponses;
     }
 }

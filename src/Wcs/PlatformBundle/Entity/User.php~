@@ -132,6 +132,20 @@ class User extends BaseUser
     private $entreprise;
 
     /**
+     *
+     * @ORM\OneToMany(targetEntity="Questions", mappedBy="user")
+     * 
+     */
+    private $questions;
+
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="Reponses", mappedBy="user")
+     *
+     */
+    private $reponses;
+
+    /**
      * Get id
      *
      * @return int
@@ -397,5 +411,73 @@ class User extends BaseUser
     public function getEntreprise()
     {
         return $this->entreprise;
+    }
+
+    /**
+     * Add question
+     *
+     * @param \Wcs\PlatformBundle\Entity\Question $question
+     *
+     * @return User
+     */
+    public function addQuestion(\Wcs\PlatformBundle\Entity\Question $question)
+    {
+        $this->questions[] = $question;
+
+        return $this;
+    }
+
+    /**
+     * Remove question
+     *
+     * @param \Wcs\PlatformBundle\Entity\Question $question
+     */
+    public function removeQuestion(\Wcs\PlatformBundle\Entity\Question $question)
+    {
+        $this->questions->removeElement($question);
+    }
+
+    /**
+     * Get questions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getQuestions()
+    {
+        return $this->questions;
+    }
+
+    /**
+     * Add reponse
+     *
+     * @param \Wcs\PlatformBundle\Entity\Reponses $reponse
+     *
+     * @return User
+     */
+    public function addReponse(\Wcs\PlatformBundle\Entity\Reponses $reponse)
+    {
+        $this->reponses[] = $reponse;
+
+        return $this;
+    }
+
+    /**
+     * Remove reponse
+     *
+     * @param \Wcs\PlatformBundle\Entity\Reponses $reponse
+     */
+    public function removeReponse(\Wcs\PlatformBundle\Entity\Reponses $reponse)
+    {
+        $this->reponses->removeElement($reponse);
+    }
+
+    /**
+     * Get reponses
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReponses()
+    {
+        return $this->reponses;
     }
 }
