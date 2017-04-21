@@ -21,4 +21,3 @@ questions_edit:
 questions_delete:
     path:     /{id}/delete
     defaults: { _controller: "WcsPlatformBundle:Questions:delete" }
-    methods:  DELETE

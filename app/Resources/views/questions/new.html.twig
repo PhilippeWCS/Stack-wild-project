@@ -7,10 +7,10 @@
             {{ form_start(form, { 'action': path('questions_new'), 'attr': { 'novalidate': 'novalidate', 'autocomplete': 'off' } }) }}
             {{ form_widget(form) }}
         </div>
-        <button class="btn" id="bouton" type="submit" value="Poste-moi">Poste-moi</button>
+        <button class="btn bouton" type="submit" value="Poste-moi">Poste-moi</button>
         {{ form_end(form) }}
 
-        <a href="{{ path('questions_index') }}"><button class="btn" id="bouton" type="submit" value="">Retour aux questions</button></a>
+        <a href="{{ path('questions_index') }}"><button class="btn bouton" type="submit" value="">Retour aux questions</button></a>
 
 
     </div>

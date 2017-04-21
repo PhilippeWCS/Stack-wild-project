@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var converter = new Showdown.converter();
-    var ret = converter.makeHtml($('#test').text());
-    document.getElementById('test').innerHTML=ret
+    var contenu = $('#contentQuest').text().trim();
+    var ret = converter.makeHtml(contenu);
+    document.getElementById('contentQuest').innerHTML = ret;
 })
-
