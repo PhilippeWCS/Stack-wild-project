@@ -214,4 +214,45 @@ class Questions
     {
         return $this->user;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->reponses = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add reponse
+     *
+     * @param \Wcs\PlatformBundle\Entity\Reponses $reponse
+     *
+     * @return Questions
+     */
+    public function addReponse(\Wcs\PlatformBundle\Entity\Reponses $reponse)
+    {
+        $this->reponses[] = $reponse;
+
+        return $this;
+    }
+
+    /**
+     * Remove reponse
+     *
+     * @param \Wcs\PlatformBundle\Entity\Reponses $reponse
+     */
+    public function removeReponse(\Wcs\PlatformBundle\Entity\Reponses $reponse)
+    {
+        $this->reponses->removeElement($reponse);
+    }
+
+    /**
+     * Get reponses
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReponses()
+    {
+        return $this->reponses;
+    }
 }
