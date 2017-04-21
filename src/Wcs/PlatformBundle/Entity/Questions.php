@@ -57,6 +57,13 @@ class Questions
 
     /**
      *
+     * @ORM\ManyToMany(targetEntity="Categories", inversedBy="questions")
+     * @ORM\JoinTable(name="questions_categories")
+     */
+    private $categories;
+
+    /**
+     *
      * @ORM\OneToMany(targetEntity="Reponses", mappedBy="question")
      */
     private $reponses;
@@ -254,5 +261,39 @@ class Questions
     public function getReponses()
     {
         return $this->reponses;
+    }
+
+    /**
+     * Add category
+     *
+     * @param \Wcs\PlatformBundle\Entity\Categories $category
+     *
+     * @return Questions
+     */
+    public function addCategory(\Wcs\PlatformBundle\Entity\Categories $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \Wcs\PlatformBundle\Entity\Categories $category
+     */
+    public function removeCategory(\Wcs\PlatformBundle\Entity\Categories $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }
