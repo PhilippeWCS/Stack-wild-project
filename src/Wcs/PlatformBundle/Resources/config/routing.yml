@@ -9,3 +9,10 @@ wcs_platform_homepage:
 wcs_platform_reponses:
     path:     /
     defaults: { _controller: WcsPlatformBundle:Reponses:index }
+wcs_platform_categories_add:
+    path:     /categories/add
+    defaults: { _controller: WcsPlatformBundle:Categories:add }
+
+wcs_platform_categories_index:
+    path:     /categories/index
+    defaults: { _controller: WcsPlatformBundle:Categories:index }

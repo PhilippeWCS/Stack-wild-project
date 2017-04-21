@@ -57,6 +57,13 @@ class Questions
 
     /**
      *
+     * @ORM\ManyToMany(targetEntity="Categories", inversedBy="questions")
+     * @ORM\JoinTable(name="questions_categories")
+     */
+    private $categories;
+
+    /**
+     *
      * @ORM\OneToMany(targetEntity="Reponses", mappedBy="question")
      */
     private $reponses;
