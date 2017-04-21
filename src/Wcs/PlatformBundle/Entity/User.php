@@ -146,6 +146,13 @@ class User extends BaseUser
     private $reponses;
 
     /**
+     *
+     * @ORM\ManyToMany(targetEntity="Categories", inversedBy="users")
+     * @ORM\JoinTable(name="user_categories")
+     */
+    private $categories;
+
+    /**
      * Get id
      *
      * @return int
@@ -479,5 +486,39 @@ class User extends BaseUser
     public function getReponses()
     {
         return $this->reponses;
+    }
+
+    /**
+     * Add category
+     *
+     * @param \Wcs\PlatformBundle\Entity\Categories $category
+     *
+     * @return User
+     */
+    public function addCategory(\Wcs\PlatformBundle\Entity\Categories $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \Wcs\PlatformBundle\Entity\Categories $category
+     */
+    public function removeCategory(\Wcs\PlatformBundle\Entity\Categories $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }

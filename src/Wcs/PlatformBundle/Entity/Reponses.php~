@@ -100,4 +100,28 @@ class Reponses
     {
         return $this->user;
     }
+
+    /**
+     * Set question
+     *
+     * @param \Wcs\PlatformBundle\Entity\Questions $question
+     *
+     * @return Reponses
+     */
+    public function setQuestion(\Wcs\PlatformBundle\Entity\Questions $question = null)
+    {
+        $this->question = $question;
+
+        return $this;
+    }
+
+    /**
+     * Get question
+     *
+     * @return \Wcs\PlatformBundle\Entity\Questions
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
 }
