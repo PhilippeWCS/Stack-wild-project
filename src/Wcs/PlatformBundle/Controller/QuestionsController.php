@@ -34,6 +34,8 @@ class QuestionsController extends Controller
     public function newAction(Request $request)
     {
         $question = new Questions();
+        $user = $this->getUser();
+        $question->setUser($user);
         $form = $this->createForm('Wcs\PlatformBundle\Form\QuestionsType', $question);
         $form->handleRequest($request);
 
@@ -60,11 +62,11 @@ class QuestionsController extends Controller
         $deleteForm = $this->createDeleteForm($question);
 
         $em = $this->getDoctrine()->getManager();
-        $quest = $em->getRepository('WcsPlatformBundle:Questions')->findOneById($question);
-        $NbVue = $quest->getNbVue();
+
+        $NbVue = $question->getNbVue();
         $NbVue += 1;
 
-        $quest->setNbVue($NbVue);
+        $question->setNbVue($NbVue);
         $em->flush();
 
         return $this->render('questions/show.html.twig', array(
