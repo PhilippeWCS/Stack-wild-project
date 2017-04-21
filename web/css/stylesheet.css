@@ -185,7 +185,7 @@ body{
     color: white;
     font-family: 'Raleway', sans-serif;
 }
-#bouton{
+.bouton{
     background-color:#1fa597;
     color: white;
     font-size: 16px;
