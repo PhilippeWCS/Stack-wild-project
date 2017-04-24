@@ -4,10 +4,11 @@ namespace Wcs\PlatformBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Wcs\PlatformBundle\Entity\Categories;
+use Symfony\Component\HttpFoundation\Request;
 
 class CategoriesController extends Controller
 {
-    public function addAction()
+    public function addAction(Request $request)
     {
         $categorie = new Categories();
         $form = $this->createForm('Wcs\PlatformBundle\Form\CategoriesType', $categorie);

@@ -262,4 +262,38 @@ class Questions
     {
         return $this->reponses;
     }
+
+    /**
+     * Add category
+     *
+     * @param \Wcs\PlatformBundle\Entity\Categories $category
+     *
+     * @return Questions
+     */
+    public function addCategory(\Wcs\PlatformBundle\Entity\Categories $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \Wcs\PlatformBundle\Entity\Categories $category
+     */
+    public function removeCategory(\Wcs\PlatformBundle\Entity\Categories $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
 }

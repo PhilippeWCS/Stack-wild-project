@@ -43,6 +43,13 @@ class Categories
     private $questions;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="img_categories", type="string", length=100, nullable=true)
+     */
+    private $imgCategories;
+
+    /**
      * Get id
      *
      * @return int
@@ -115,5 +122,39 @@ class Categories
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Add question
+     *
+     * @param \Wcs\PlatformBundle\Entity\Questions $question
+     *
+     * @return Categories
+     */
+    public function addQuestion(\Wcs\PlatformBundle\Entity\Questions $question)
+    {
+        $this->questions[] = $question;
+
+        return $this;
+    }
+
+    /**
+     * Remove question
+     *
+     * @param \Wcs\PlatformBundle\Entity\Questions $question
+     */
+    public function removeQuestion(\Wcs\PlatformBundle\Entity\Questions $question)
+    {
+        $this->questions->removeElement($question);
+    }
+
+    /**
+     * Get questions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getQuestions()
+    {
+        return $this->questions;
     }
 }

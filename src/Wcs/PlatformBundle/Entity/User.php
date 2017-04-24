@@ -423,11 +423,11 @@ class User extends BaseUser
     /**
      * Add question
      *
-     * @param \Wcs\PlatformBundle\Entity\Question $question
+     * @param \Wcs\PlatformBundle\Entity\Questions $question
      *
      * @return User
      */
-    public function addQuestion(\Wcs\PlatformBundle\Entity\Question $question)
+    public function addQuestion(\Wcs\PlatformBundle\Entity\Questions $question)
     {
         $this->questions[] = $question;
 
@@ -437,9 +437,9 @@ class User extends BaseUser
     /**
      * Remove question
      *
-     * @param \Wcs\PlatformBundle\Entity\Question $question
+     * @param \Wcs\PlatformBundle\Entity\Questions $question
      */
-    public function removeQuestion(\Wcs\PlatformBundle\Entity\Question $question)
+    public function removeQuestion(\Wcs\PlatformBundle\Entity\Questions $question)
     {
         $this->questions->removeElement($question);
     }
