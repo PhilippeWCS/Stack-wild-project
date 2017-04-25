@@ -18,7 +18,7 @@ class CategoriesType extends AbstractType
     {
         $builder
             ->add('intitule', TextType::class, array('label'=>'Catégories'))
-        ->add('imgCategories', FileType::class, array('label' => 'Image', 'data_class' => null));
+            ->add('imgCategories', FileType::class, array('label' => 'Image', 'data_class' => null));
 
     }
 

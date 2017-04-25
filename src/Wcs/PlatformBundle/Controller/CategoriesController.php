@@ -19,10 +19,8 @@ class CategoriesController extends Controller
             $em->persist($categorie);
             $em->flush();
 
-            return $this->redirectToRoute('categories_index');
+            return $this->redirectToRoute('wcs_platform_categories_index');
         }
-
-
         return $this->render('categories/add.html.twig', array(
             'categorie' => $categorie,
             'form' => $form->createView(),
@@ -33,10 +31,7 @@ class CategoriesController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-
         $categories = $em->getRepository('WcsPlatformBundle:Categories')->findAll();
-
-
         return $this->render('categories/index.html.twig', array(
             'categories'=> $categories,
         ));
