@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="reponses")
  * @ORM\Entity(repositoryClass="Wcs\PlatformBundle\Repository\ReponsesRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Reponses
 {
@@ -27,6 +28,13 @@ class Reponses
      * @ORM\Column(name="contenu", type="string", length=255)
      */
     private $contenu;
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="Add_at", type="datetime")
+     */
+    private $addAt;
 
     /**
      *
