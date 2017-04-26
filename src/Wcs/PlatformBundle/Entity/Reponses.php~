@@ -132,4 +132,36 @@ class Reponses
     {
         return $this->question;
     }
+
+    /**
+     * Set addAt
+     *
+     * @param \DateTime $addAt
+     *
+     * @return Reponses
+     */
+    public function setAddAt($addAt)
+    {
+        $this->addAt = $addAt;
+
+        return $this;
+    }
+
+    /**
+     * Get addAt
+     *
+     * @return \DateTime
+     */
+    public function getAddAt()
+    {
+        return $this->addAt->format('d/m/Y H:i:s');
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setAddAtValue()
+    {
+        $this->addAt = new \DateTime();
+    }
 }
