@@ -1,16 +1,10 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-    <h1>Reponse creation</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+<div id="contenu">
+    <h2>Ajoute une réponse</h2>
+    {{ form_start(form, { 'action': path('wcs_platform_reponses_add'), 'attr': { 'novalidate': 'novalidate', 'autocomplete': 'off' } }) }}
+        {{ form_row(form.contenu) }}
+        {{ form_row(form.question, {'value' : idQuestion ~ "", 'attr' : {'style' : 'display:none;'} }) }}
+        <div class="form-row text-right">
+            <button class="btn bouton" type="submit" value="Poste-moi">Poste-moi</button>
+        </div>
     {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('reponses_index') }}">Back to the list</a>
-        </li>
-    </ul>
-{% endblock %}
+</div>
