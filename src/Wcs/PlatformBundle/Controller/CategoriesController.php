@@ -4,10 +4,11 @@ namespace Wcs\PlatformBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Wcs\PlatformBundle\Entity\Categories;
+use Symfony\Component\HttpFoundation\Request;
 
 class CategoriesController extends Controller
 {
-    public function addAction()
+    public function addAction(Request $request)
     {
         $categorie = new Categories();
         $form = $this->createForm('Wcs\PlatformBundle\Form\CategoriesType', $categorie);
@@ -18,10 +19,8 @@ class CategoriesController extends Controller
             $em->persist($categorie);
             $em->flush();
 
-            return $this->redirectToRoute('categories_index');
+            return $this->redirectToRoute('wcs_platform_categories_index');
         }
-
-
         return $this->render('categories/add.html.twig', array(
             'categorie' => $categorie,
             'form' => $form->createView(),
@@ -32,10 +31,7 @@ class CategoriesController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-
         $categories = $em->getRepository('WcsPlatformBundle:Categories')->findAll();
-
-
         return $this->render('categories/index.html.twig', array(
             'categories'=> $categories,
         ));
