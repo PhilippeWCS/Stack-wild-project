@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="questions")
  * @ORM\Entity(repositoryClass="Wcs\PlatformBundle\Repository\QuestionsRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Questions
 {
@@ -48,6 +49,13 @@ class Questions
      * @ORM\Column(name="Nb_vue", type="integer")
      */
     private $nbVue = 0;
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="Add_at", type="datetime")
+     */
+    private $addAt;
 
     /**
      *
@@ -295,5 +303,37 @@ class Questions
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Set addAt
+     *
+     * @param \DateTime $addAt
+     *
+     * @return Questions
+     */
+    public function setAddAt($addAt)
+    {
+        $this->addAt = $addAt;
+
+        return $this;
+    }
+
+    /**
+     * Get addAt
+     *
+     * @return \DateTime
+     */
+    public function getAddAt()
+    {
+        return $this->addAt->format('d/m/Y H:i:s');
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setAddAtValue()
+    {
+        $this->addAt = new \DateTime();
     }
 }

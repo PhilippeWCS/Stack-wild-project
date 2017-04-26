@@ -192,6 +192,10 @@ body{
     margin-left: 40px;
     margin-top: 40px;
 }
+#contenu
+{
+    margin-bottom: 20px;
+}
 #contenu h1{
     margin: 0 0;
     padding: 10px 10px;
@@ -507,4 +511,15 @@ a{
 .quest_accueil
 {
     border-bottom-style: solid;
+}
+
+.quest_accueil a:hover
+{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.chevron
+{
+    margin-top: 10px;
 }

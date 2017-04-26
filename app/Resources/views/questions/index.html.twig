@@ -22,21 +22,25 @@
 
         {% for question in questions %}
             <div class="col-xs-9 quest_accueil">
-                <div class="col-xs-1">
-                    <p>Votes</p>
+                <div class="col-xs-1 text-center">
+                    <h5><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Votes</h5>
+                </div>
+                <div class="col-xs-1 text-center">
+                    <h5>{{ question.nbVue }}</h5>
+                    <h5><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Vues</h5>
                 </div>
                 <div class="col-xs-1">
-                    <p>{{ question.nbVue }}</p>
-                    <p>Vues</p>
+                    <img class="chevron" alt="chevron" src="{{ asset('img/chevron-droit.png') }}">
                 </div>
-                <div class="col-xs-2">
-                    <img class="chevron" width="10%" alt="chevron" src="{{ asset('img/chevron-droit.png') }}">
-                    <span></span>
-                    <img class="chevron" width="10%" alt="chevron" src="{{ asset('img/chevron-gauche.png') }}">
-                    <p>Réponses</p>
+                <div class="col-xs-2 text-center">
+                    <h5>{{ question.reponses|length }}</h5>
+                    <h5><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><br>Réponses</h5>
                 </div>
-                <div class="col-xs-6">
-                    <p><a href="{{ path('questions_show', { 'id': question.id }) }}">{{ question.intituleQuestion }} </a></p>
+                <div class="col-xs-1">
+                    <img class="chevron" alt="chevron" src="{{ asset('img/chevron-gauche.png') }}">
+                </div>
+                <div class="col-xs-6 text-center">
+                    <h5><a href="{{ path('questions_show', { 'id': question.id }) }}">{{ question.intituleQuestion }} </a></h5>
                 </div>
             </div>
         {% endfor %}
