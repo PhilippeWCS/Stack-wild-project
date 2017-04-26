@@ -43,6 +43,13 @@ class Categories
     private $questions;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="img_categories", type="string", length=100, nullable=true)
+     */
+    private $imgCategories;
+
+    /**
      * Get id
      *
      * @return int
@@ -149,5 +156,29 @@ class Categories
     public function getQuestions()
     {
         return $this->questions;
+    }
+
+    /**
+     * Set imgCategories
+     *
+     * @param string $imgCategories
+     *
+     * @return Categories
+     */
+    public function setImgCategories($imgCategories)
+    {
+        $this->imgCategories = $imgCategories;
+
+        return $this;
+    }
+
+    /**
+     * Get imgCategories
+     *
+     * @return string
+     */
+    public function getImgCategories()
+    {
+        return $this->imgCategories;
     }
 }

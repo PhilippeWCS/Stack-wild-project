@@ -2,4 +2,27 @@
 {% block Wcsplatform_body %}
 
 
+    <div class="container">
+        <h2>Liste des Catégories</h2>
+
+    <div class="row">
+
+        <table>
+         {% for categorie in categories %}
+             <tr>
+                 <td>{{ categorie.intitule }}</td>
+                 <td>{{ categorie.imgCategories }}</td>
+                 <td><img src="{{ categorie.imgCategories }}"/></td>
+                 <td>
+                     <div class="card col-xs-1"><img class="img-responsive" src="{{ asset('img/' ~ categorie.imgCategories) }}"/></div></td>
+             </tr>
+         {% endfor %}
+        </table>
+    </div>
+    </div>
+
+
+
+    <a href="{{ path('wcs_platform_categories_add') }}" class="btn bouton">Ajouter une catégorie</a>
+
 {% endblock %}
