@@ -5,6 +5,7 @@ namespace Wcs\PlatformBundle\Controller;
 use Wcs\PlatformBundle\Entity\Questions;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * Question controller.
@@ -30,6 +31,7 @@ class QuestionsController extends Controller
     /**
      * Creates a new question entity.
      *
+     * @Security("has_role('ROLE_USER')")
      */
     public function newAction(Request $request)
     {
@@ -60,24 +62,24 @@ class QuestionsController extends Controller
     public function showAction(Questions $question)
     {
         $deleteForm = $this->createDeleteForm($question);
-
         $em = $this->getDoctrine()->getManager();
-
         $NbVue = $question->getNbVue();
         $NbVue += 1;
-
         $question->setNbVue($NbVue);
         $em->flush();
 
+
+
         return $this->render('questions/show.html.twig', array(
             'question' => $question,
-            'delete_form' => $deleteForm->createView(),
+            'delete_form' => $deleteForm->createView()
         ));
     }
 
     /**
      * Displays a form to edit an existing question entity.
      *
+     * @Security("has_role('ROLE_USER')")
      */
     public function editAction(Request $request, Questions $question)
     {
@@ -100,6 +102,8 @@ class QuestionsController extends Controller
 
     /**
      * Deletes a question entity.
+     *
+     * @Security("has_role('ROLE_USER')")
      *
      */
     public function deleteAction(Request $request, Questions $question)

@@ -4,22 +4,18 @@ namespace Wcs\PlatformBundle\Controller;
 
 use Wcs\PlatformBundle\Entity\Reponses;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * Reponse controller.
  *
- * @Route("reponses")
  */
 class ReponsesController extends Controller
 {
     /**
      * Lists all reponse entities.
      *
-     * @Route("/", name="reponses_index")
-     * @Method("GET")
      */
     public function indexAction()
     {
@@ -35,12 +31,13 @@ class ReponsesController extends Controller
     /**
      * Creates a new reponse entity.
      *
-     * @Route("/new", name="reponses_new")
-     * @Method({"GET", "POST"})
+     *
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $idQuestion = null)
     {
-        $reponse = new Reponse();
+        $reponse = new Reponses();
+        $user = $this->getUser();
+        $reponse->setUser($user);
         $form = $this->createForm('Wcs\PlatformBundle\Form\ReponsesType', $reponse);
         $form->handleRequest($request);
 
@@ -49,20 +46,19 @@ class ReponsesController extends Controller
             $em->persist($reponse);
             $em->flush();
 
-            return $this->redirectToRoute('reponses_show', array('id' => $reponse->getId()));
+            return $this->redirectToRoute('questions_show', array('id' => $reponse->getQuestion()->getId()));
         }
 
         return $this->render('reponses/new.html.twig', array(
             'reponse' => $reponse,
-            'form' => $form->createView(),
+            'idQuestion' => $idQuestion,
+            'form' => $form->createView()
         ));
     }
 
     /**
      * Finds and displays a reponse entity.
      *
-     * @Route("/{id}", name="reponses_show")
-     * @Method("GET")
      */
     public function showAction(Reponses $reponse)
     {
@@ -77,8 +73,6 @@ class ReponsesController extends Controller
     /**
      * Displays a form to edit an existing reponse entity.
      *
-     * @Route("/{id}/edit", name="reponses_edit")
-     * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Reponses $reponse)
     {
@@ -102,8 +96,8 @@ class ReponsesController extends Controller
     /**
      * Deletes a reponse entity.
      *
-     * @Route("/{id}", name="reponses_delete")
-     * @Method("DELETE")
+     * @Security("has_role('ROLE_USER')")
+     *
      */
     public function deleteAction(Request $request, Reponses $reponse)
     {

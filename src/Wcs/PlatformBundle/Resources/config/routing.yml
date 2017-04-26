@@ -4,16 +4,16 @@ wcs_platform_questions:
 
 wcs_platform_homepage:
     path:     /
-    defaults: { _controller: WcsPlatformBundle:Questions:index }
+    defaults: { _controller: "WcsPlatformBundle:Questions:index" }
 
-wcs_platform_reponses:
-    path:     /
-    defaults: { _controller: WcsPlatformBundle:Reponses:index }
+wcs_platform_reponses_add:
+    path:     /reponse/new
+    defaults: { _controller: "WcsPlatformBundle:Reponses:new" }
 
 wcs_platform_categories_add:
     path:     /categories/add
-    defaults: { _controller: WcsPlatformBundle:Categories:add }
+    defaults: { _controller: "WcsPlatformBundle:Categories:add" }
 
 wcs_platform_categories_index:
     path:     /categories/index
-    defaults: { _controller: WcsPlatformBundle:Categories:index }
+    defaults: { _controller: "WcsPlatformBundle:Categories:index" }
