@@ -1,16 +1,16 @@
 {% extends "::layout.html.twig" %}
 
 {% block Wcsplatform_body  %}
+
     <div id="contenu">
         <div class="formulaire">
             <h2>Pose ta question</h2>
-            {{ form_start(form, { 'action': path('questions_new'), 'attr': { 'novalidate': 'novalidate', 'autocomplete': 'off' } }) }}
-            {{ form_widget(form) }}
+                {{ form_start(form, { 'action': path('questions_new'), 'attr': { 'novalidate': 'novalidate', 'autocomplete': 'off' } }) }}
+                {{ form_widget(form) }}
         </div>
-        <a href="{{ path('questions_index') }}" class="btn bouton">Retour aux questions</a>
-
-        <button class="btn bouton" type="submit" value="Poste-moi">Poste-moi</button>
-        {{ form_end(form) }}
+            <a href="{{ path('questions_index') }}" class="btn bouton">Retour aux questions</a>
+            <button class="btn bouton" type="submit" value="Poste-moi">Poste-moi</button>
+            {{ form_end(form) }}
     </div>
     <br/>
 {% endblock %}
@@ -18,4 +18,7 @@
 {% block javascripts %}
     {{ parent() }}
     <script src="{{ asset('js/markdown.js') }}"></script>
+    <script src="{{ asset('js/categoriesInQuestions.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-multiselect.js') }}"></script>
+
 {% endblock %}

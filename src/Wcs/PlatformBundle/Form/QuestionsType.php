@@ -2,6 +2,7 @@
 
 namespace Wcs\PlatformBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,7 +17,17 @@ class QuestionsType extends AbstractType
     {
         $builder
             ->add('intituleQuestion')
-            ->add('contenu', TextareaType::class, array('label'=>'Votre message'));
+            ->add('contenu', TextareaType::class, array('label'=>'Votre message'))
+            ->add('categories', EntityType::class, array(
+                'label' => 'Choix des catégories',
+                'class' => 'WcsPlatformBundle:Categories',
+                'multiple' => true,
+                'choice_label' => function($categories) {
+                    return $categories->getIntitule();
+                },
+
+
+                ));
     }
     
     /**

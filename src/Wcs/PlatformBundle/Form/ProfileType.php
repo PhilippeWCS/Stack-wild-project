@@ -5,6 +5,7 @@ namespace Wcs\PlatformBundle\Form;
 use function Sodium\add;
 use FOS\UserBundle\Util\LegacyFormHelper;
 use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -40,6 +41,14 @@ class ProfileType extends AbstractType
             ->add('urlLinkedin', UrlType::class, array('label' => 'Profil LinkedIn'))
             ->add('urlTweeter', UrlType::class, array('label' => 'Profil Tweeter'))
             ->add('urlGithub', UrlType::class, array('label' => 'Profil Github'))
+            ->add('categories', EntityType::class, array(
+                'class' => 'WcsPlatformBundle:Categories',
+                'label' => 'Choix des catégories',
+                'multiple' => true,
+                'choice_label' => function($categories) {
+                    return $categories->getIntitule();
+                },
+            ))
             ->add('villeEcole', TextType::class, array('label' => "Ville de l'école"))
             ->add('profil', ChoiceType::class, array(
                 'choices' => User::getProfils(),
