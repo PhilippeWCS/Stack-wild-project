@@ -18,6 +18,10 @@ wcs_platform_categories_index:
     path:     /categories/index
     defaults: { _controller: "WcsPlatformBundle:Categories:index" }
 
+wcs_platform_users_show:
+    path:     /list-users/show
+    defaults: { _controller: WcsPlatformBundle:AllUsers:show }
+
 wcs_platform_vote:
     path:     /vote
     defaults: { _controller: WcsPlatformBundle:Vote:vote }
