@@ -386,6 +386,7 @@ a{
     padding: 10px 0 0;
     text-align: center;
 }
+
 .card .footer .social-links{
     font-size: 18px;
 }
@@ -396,8 +397,8 @@ a{
     margin-top: -6px;
 }
 .card .header {
-    padding: 15px 20px;
-    height: 90px;
+    padding: 5px 20px;
+    height: 50px;
 }
 .card .motto{
     font-family: 'Arima Madurai', cursive;
@@ -444,7 +445,30 @@ a{
 }
 /************************************************\
 ==================================================
-5. Footer
+5. Categories
+==================================================
+\************************************************/
+
+
+.categories{
+    background: none repeat scroll 0 0 #FFFFFF;
+    height:180px;
+    border-radius: 4px;
+    color: #444444;
+}
+
+.categoriesLogo{
+    max-width: 100%;
+    text-align: center;
+    margin: auto;
+    max-height: 180px;
+    padding: 10px 10px;
+}
+
+
+/************************************************\
+==================================================
+6. Footer
 ==================================================
 \************************************************/
 

@@ -171,6 +171,7 @@ class Reponses
     {
         $this->addAt = new \DateTime();
     }
+
     /**
      * Constructor
      */
@@ -212,4 +213,5 @@ class Reponses
     {
         return $this->votes;
     }
+
 }

@@ -3,6 +3,7 @@
 namespace Wcs\PlatformBundle\Controller;
 
 use Wcs\PlatformBundle\Entity\Questions;
+use Wcs\PlatformBundle\Entity\Categories;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -39,6 +40,9 @@ class QuestionsController extends Controller
         $user = $this->getUser();
         $question->setUser($user);
         $form = $this->createForm('Wcs\PlatformBundle\Form\QuestionsType', $question);
+
+
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

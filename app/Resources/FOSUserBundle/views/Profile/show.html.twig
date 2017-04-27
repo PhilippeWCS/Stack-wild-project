@@ -34,11 +34,16 @@
                 </div>
             </div> <!-- end front panel -->
             <div class="back">
-                <div class="header">
-                    <h5 class="motto">"To be or not to be, that is the Question!"</h5>
-                </div>
+
                 <div class="content">
+                    <div class="header">
+                        <h5 class="motto">"To be or not to be, that is the Question!"</h5>
+                    </div>
                     <div class="main">
+                        <h4 class="text-center">Tes catégories préférées</h4>
+                        {% for categorie in user.categories %}
+                            <span class="text-center" >{{ categorie.intitule }} -</span>
+                        {% endfor %}
                         <h4 class="text-center">Statistiques</h4>
                         <p class="text-center"> Tes questions, tes réponses, tes votes...</p>
 
@@ -62,7 +67,6 @@
                                 </p>
                             </div>
                         </div>
-                        <a href="{{ path('fos_user_profile_edit') }}"><button class="btn" id="bouton-center" type="submit" value="">Edite ton profil</button></a>
 
                     </div>
 
@@ -76,6 +80,8 @@
                         <a href="{{ user.urlGithub }}" target="_blank" class="google"><i class="fa fa-github fa-fw"></i></a>
 
                     </div>
+                    <a href="{{ path('fos_user_profile_edit') }}"><button class="btn" id="bouton-center" type="submit" value="">Edite ton profil</button></a>
+
                 </div>
             </div> <!-- end back panel -->
         </div> <!-- end card -->
