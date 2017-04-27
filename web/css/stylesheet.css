@@ -547,3 +547,8 @@ a{
 {
     margin-top: 10px;
 }
+
+.vote, vote:hover
+{
+    color: #1fa597;
+}
