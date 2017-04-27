@@ -2,84 +2,75 @@
 
 {% block Wcsplatform_body %}
 
-    <div class="page-header">
-        <h2><h2>Liste des utilisateurs</h2></h2>
-    </div>
+    <div class="col-md-offset-4 col-md-4 col-md-offset-6 col-sm-6 col-xs-12">
+        <div class="card-container">
+            <div class="card">
+                <div class="front">
+                    <div class="cover">
+                        <img src="https://www.clipartsgram.com/image/129556292-kyz84k3.jpg"/>
+                    </div>
+                    <div class="user">
+                        <img class="img-circle" src="{{ asset('img/profil/' ~ user.imgProfil) }}"/>
+                    </div>
+                    <div class="content">
+                        <div class="main">
+                            <h3 class="name">{{ user.prenom }} {{ user.nom }}</h3>
+                            <p class="email">{{ user.email }}</p>
+                            <p class="text-center">Profil : {{ user.profil }}</p>
+                            {% if user.villeEcole %}
+                                <p class="text-center">Ville de l'Ecole : {{ user.villeEcole }}</p>
+                            {% endif %}
+                            {% if user.emploi %}
+                                <p class="text-center">Emploi : {{ user.emploi }}</p>
+                            {% endif %}
+                            {% if user.entreprise %}
+                                <p class="text-center">Entreprise : {{ user.entreprise }}</p>
+                            {% endif %}
+                        </div>
+                        <div class="footer">
+                            <i class="fa fa-mail-forward"></i>
+                        </div>
+                    </div>
+                </div> <!-- end front panel -->
 
-    <div class="row">
-        {% for user in users %}
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="card-container">
-                    <div class="card">
-                        <div class="front">
-                            <div class="cover">
-                                <img src="https://www.clipartsgram.com/image/129556292-kyz84k3.jpg"/>
-                            </div>
-                            <div class="user">
-                                <img class="img-circle" src="{{ asset('img/profil/' ~ user.imgProfil) }}"/>
-                            </div>
-                            <div class="content">
-                                <div class="main">
-                                    <h3 class="name">{{ user.prenom }} {{ user.nom }}</h3>
-                                    <p class="email">{{ user.email }}</p>
-                                    <p class="text-center">Profil : {{ user.profil }}</p>
-                                    {% if user.villeEcole %}
-                                        <p class="text-center">Ville de l'Ecole : {{ user.villeEcole }}</p>
-                                    {% endif %}
-                                    {% if user.emploi %}
-                                        <p class="text-center">Emploi : {{ user.emploi }}</p>
-                                    {% endif %}
-                                    {% if user.entreprise %}
-                                        <p class="text-center">Entreprise : {{ user.entreprise }}</p>
-                                    {% endif %}
+                <div class="back">
+                    <div class="content">
+                        <div class="header">
+                            <h5 class="motto">"To be or not to be, that is the Question!"</h5>
+                        </div>
+                        <div class="main">
+                            <h4 class="text-center">Tes catégories préférées</h4>
+                            {% for categorie in user.categories %}
+                                <span class="text-center" >{{ categorie.intitule }} -</span>
+                            {% endfor %}
+                            <h4 class="text-center">Statistiques</h4>
+                            <p class="text-center"> Tes questions, tes réponses, tes votes...</p>
+                            <div class="stats-container">
+                                <div class="stats">
+                                    <h4>235</h4>
+                                    <p>Questions</p>
                                 </div>
-                                <div class="footer">
-                                    <i class="fa fa-mail-forward"></i>
+                                <div class="stats">
+                                    <h4>114</h4>
+                                    <p>Réponses</p>
+                                </div>
+                                <div class="stats">
+                                    <h4>35</h4>
+                                    <p>Votes</p>
                                 </div>
                             </div>
-                        </div> <!-- end front panel -->
-
-                        <div class="back">
-                            <div class="content">
-                                <div class="header">
-                                    <h5 class="motto">"To be or not to be, that is the Question!"</h5>
-                                </div>
-                                <div class="main">
-                                    <h4 class="text-center">Tes catégories préférées</h4>
-                                    {% for categorie in user.categories %}
-                                        <span class="text-center" >{{ categorie.intitule }} -</span>
-                                    {% endfor %}
-                                    <h4 class="text-center">Statistiques</h4>
-                                    <p class="text-center"> Tes questions, tes réponses, tes votes...</p>
-                                    <div class="stats-container">
-                                        <div class="stats">
-                                            <h4>235</h4>
-                                            <p>Questions</p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>114</h4>
-                                            <p>Réponses</p>
-                                        </div>
-                                        <div class="stats">
-                                            <h4>35</h4>
-                                            <p>Votes</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="footer">
-                                <div class="social-links text-center">
-                                    <a href="{{ user.urlLinkedin ? user.urlLinkedin : '' }}" target="_blank" class="facebook"><i class="fa fa-linkedin fa-fw"></i></a>
-                                    <a href="{{ user.urlTweeter ? user.urlTweeter : '' }}" target="_blank" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
-                                    <a href="{{ user.urlGithub ? user.urlGithub : '' }}" target="_blank" class="google"><i class="fa fa-github fa-fw"></i></a>
-                                </div>
-                                <a href="{{ path('fos_user_profile_edit') }}"><button class="btn" id="bouton-center" type="submit" value=""><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edite ton profil</button></a>
-                            </div>
-                        </div> <!-- end back panel -->
-                    </div> <!-- end card -->
-                </div>
-            </div>
-        {% endfor %}
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <div class="social-links text-center">
+                            <a href="{{ user.urlLinkedin ? user.urlLinkedin : '' }}" target="_blank" class="facebook"><i class="fa fa-linkedin fa-fw"></i></a>
+                            <a href="{{ user.urlTweeter ? user.urlTweeter : '' }}" target="_blank" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+                            <a href="{{ user.urlGithub ? user.urlGithub : '' }}" target="_blank" class="google"><i class="fa fa-github fa-fw"></i></a>
+                        </div>
+                    </div>
+                </div> <!-- end back panel -->
+            </div> <!-- end card -->
+        </div>
     </div>
 
 {% endblock %}

@@ -22,6 +22,10 @@ wcs_platform_users_show:
     path:     /list-users/show
     defaults: { _controller: WcsPlatformBundle:AllUsers:show }
 
+wcs_platform_user_show:
+    path:     /user/{id}/show
+    defaults: { _controller: WcsPlatformBundle:AllUsers:showOne }
+
 wcs_platform_vote:
     path:     /vote
     defaults: { _controller: WcsPlatformBundle:Vote:vote }

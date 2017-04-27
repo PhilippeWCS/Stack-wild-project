@@ -30,8 +30,10 @@
                         {% endif %}
                     </div>
                     <div class="col-xs-offset-2 col-xs-4">
-                        <img class="img-responsive img-circle center-block" src="{{ asset('img/profil/' ~ question.user.imgProfil) }}" alt="Profil">
-                        <p class="text-center">{{ question.user.prenom }} {{ question.user.nom }}</p>
+                        <a class="lienProfil" href="{{ path('wcs_platform_user_show', {'id' : question.user.id}) }}">
+                            <img class="img-responsive img-circle center-block" src="{{ asset('img/profil/' ~ question.user.imgProfil) }}" alt="Profil">
+                            <p class="text-center">{{ question.user.prenom }} {{ question.user.nom }}</p>
+                        </a>
                     </div>
                 </div>
                 <div class="caption">
@@ -61,8 +63,10 @@
                             {% endif %}
                         </div>
                         <div class="col-xs-offset-2 col-xs-4">
-                            <img class="img-responsive img-circle center-block" src="{{ asset('img/profil/' ~ reponse.user.imgProfil) }}" alt="Profil">
-                            <p class="text-center">{{ reponse.user.prenom }} {{ reponse.user.nom }}</p>
+                            <a class="lienProfil" href="{{ path('wcs_platform_user_show', {'id' : question.user.id}) }}">
+                                <img class="img-responsive img-circle center-block" src="{{ asset('img/profil/' ~ reponse.user.imgProfil) }}" alt="Profil">
+                                <p class="text-center">{{ reponse.user.prenom }} {{ reponse.user.nom }}</p>
+                            </a>
                         </div>
                     </div>
                     <div class="caption">
