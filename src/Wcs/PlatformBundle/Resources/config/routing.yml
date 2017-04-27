@@ -17,3 +17,7 @@ wcs_platform_categories_add:
 wcs_platform_categories_index:
     path:     /categories/index
     defaults: { _controller: "WcsPlatformBundle:Categories:index" }
+
+wcs_platform_vote:
+    path:     /vote
+    defaults: { _controller: WcsPlatformBundle:Vote:vote }

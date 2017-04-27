@@ -1,7 +1,7 @@
 {% extends "::layout.html.twig" %}
 
 {% block Wcsplatform_body %}
-    <div class="row">
+    <div id="questionShow" class="row" data-url="{{ path('wcs_platform_vote') }}">
         <div class="col-xs-3">
             <div class="display-table">
                 <div class="display-table-row">
@@ -17,14 +17,24 @@
         </div>
         <div class="col-xs-9">
             <div class="thumbnail card">
-                <img class="img-responsive img-circle" src="{{ asset('img/profil/' ~ question.user.imgProfil) }}" alt="Profil">
-                <p class="text-center">{{ question.user.prenom }} {{ question.user.nom }}</p>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <h3 id="vote_{{ question.id }}" class="text-center">{{ question.votes|length }}</h3>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") and voteQuestForbidden is empty and question.user.id != app.user.id%}
+                            <h3 class="text-center"><a id="voteButton" class="vote" data-id="{{ question.id }}"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a></h3>
+                        {% endif %}
+                    </div>
+                    <div class="col-xs-offset-2 col-xs-4">
+                        <img class="img-responsive img-circle center-block" src="{{ asset('img/profil/' ~ question.user.imgProfil) }}" alt="Profil">
+                        <p class="text-center">{{ question.user.prenom }} {{ question.user.nom }}</p>
+                    </div>
+                </div>
                 <div class="caption">
                     <div class="page-header">
                         <h3>{{ question.intituleQuestion }} <small>Ajoutée le : {{ question.addAt }}</small></h3>
                     </div>
                     <p class="markdown">{{ question.contenu }}</p>
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") and question.reponses is empty %}
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") and app.user.votes(question) is empty %}
                         <p class="text-center">
                             <a href="{{ path('questions_edit', {'id': question.id}) }}" class="btn btn-info"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Modifier question</a>
                             <a href="{{ path('questions_delete', {'id': question.id}) }}" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Supprimer question</a>
@@ -38,8 +48,18 @@
         {% for reponse in question.reponses %}
             <div class="col-xs-offset-3 col-xs-9">
                 <div class="thumbnail card">
-                    <img class="img-responsive img-circle" src="{{ asset('img/profil/' ~ reponse.user.imgProfil) }}" alt="Profil">
-                    <p class="text-center">{{ reponse.user.prenom }} {{ reponse.user.nom }}</p>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <h3 id="vote_{{ reponse.id }}" class="text-center">{{ reponse.votes|length }}</h3>
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") and reponse.id not in voteRepFobidden and reponse.votes(app.user.id) is empty and reponse.user.id != app.user.id %}
+                                <h3 class="text-center"><a class="vote voteButton" data-id="{{ reponse.id }}"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a></h3>
+                            {% endif %}
+                        </div>
+                        <div class="col-xs-offset-2 col-xs-4">
+                            <img class="img-responsive img-circle center-block" src="{{ asset('img/profil/' ~ reponse.user.imgProfil) }}" alt="Profil">
+                            <p class="text-center">{{ reponse.user.prenom }} {{ reponse.user.nom }}</p>
+                        </div>
+                    </div>
                     <div class="caption">
                         <div class="page-header">
                             <h3>Réponse <small>Ajoutée le : {{ reponse.addAt }}</small></h3>
@@ -64,4 +84,5 @@
     <script src="{{ asset('js/markdown.js') }}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
     <script src="{{ asset('js/showdown.js') }}"></script>
+    <script src="{{ asset('js/vote.js') }}"></script>
 {% endblock %}

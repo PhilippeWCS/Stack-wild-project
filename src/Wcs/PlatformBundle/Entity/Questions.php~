@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="questions")
  * @ORM\Entity(repositoryClass="Wcs\PlatformBundle\Repository\QuestionsRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Questions
 {
@@ -74,6 +75,13 @@ class Questions
      * @ORM\OneToMany(targetEntity="Reponses", mappedBy="question")
      */
     private $reponses;
+
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="Vote", mappedBy="question")
+     *
+     */
+    private $votes;
 
     /**
      * Get id
@@ -302,5 +310,71 @@ class Questions
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Set addAt
+     *
+     * @param \DateTime $addAt
+     *
+     * @return Questions
+     */
+    public function setAddAt($addAt)
+    {
+        $this->addAt = $addAt;
+
+        return $this;
+    }
+
+    /**
+     * Get addAt
+     *
+     * @return \DateTime
+     */
+    public function getAddAt()
+    {
+        return $this->addAt->format('d/m/Y H:i:s');
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setAddAtValue()
+    {
+        $this->addAt = new \DateTime();
+    }
+
+    /**
+     * Add vote
+     *
+     * @param \Wcs\PlatformBundle\Entity\Vote $vote
+     *
+     * @return Questions
+     */
+    public function addVote(\Wcs\PlatformBundle\Entity\Vote $vote)
+    {
+        $this->votes[] = $vote;
+
+        return $this;
+    }
+
+    /**
+     * Remove vote
+     *
+     * @param \Wcs\PlatformBundle\Entity\Vote $vote
+     */
+    public function removeVote(\Wcs\PlatformBundle\Entity\Vote $vote)
+    {
+        $this->votes->removeElement($vote);
+    }
+
+    /**
+     * Get votes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVotes()
+    {
+        return $this->votes;
     }
 }
