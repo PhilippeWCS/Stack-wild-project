@@ -3,6 +3,7 @@
 namespace Wcs\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Reponses
@@ -25,7 +26,9 @@ class Reponses
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu", type="string", length=255)
+     * @ORM\Column(name="contenu", type="text")
+     * @Assert\NotBlank()
+     *
      */
     private $contenu;
 

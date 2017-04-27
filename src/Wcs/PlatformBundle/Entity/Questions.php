@@ -3,6 +3,7 @@
 namespace Wcs\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Formulaire des Questions
@@ -26,13 +27,20 @@ class Questions
      * @var string
      *
      * @ORM\Column(name="Intitule_question", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Type("string")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 255,
+     * )
      */
     private $intituleQuestion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Contenu", type="string", length=255)
+     * @ORM\Column(name="Contenu", type="text")
+     * @Assert\NotBlank()
      */
     private $contenu;
 
