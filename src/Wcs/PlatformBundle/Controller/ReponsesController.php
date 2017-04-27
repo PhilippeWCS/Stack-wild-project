@@ -31,7 +31,7 @@ class ReponsesController extends Controller
     /**
      * Creates a new reponse entity.
      *
-     *
+     * @Security("has_role('ROLE_USER')")
      */
     public function newAction(Request $request, $idQuestion = null)
     {
@@ -73,6 +73,7 @@ class ReponsesController extends Controller
     /**
      * Displays a form to edit an existing reponse entity.
      *
+     * @Security("has_role('ROLE_USER')")
      */
     public function editAction(Request $request, Reponses $reponse)
     {

@@ -22,26 +22,35 @@
 
         <div class="col-xs-9">
             {% for question in questions %}
-                <div class="row quest_accueil">
-                    <div class="col-xs-1 text-center">
-                        <h5><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Votes</h5>
-                    </div>
-                    <div class="col-xs-1 text-center">
-                        <h5>{{ question.nbVue }}</h5>
-                        <h5><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Vues</h5>
-                    </div>
-                    <div class="col-xs-1">
-                        <img class="chevron" alt="chevron" src="{{ asset('img/chevron-droit.png') }}">
-                    </div>
-                    <div class="col-xs-2 text-center">
-                        <h5>{{ question.reponses|length }}</h5>
-                        <h5><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><br>Réponses</h5>
-                    </div>
-                    <div class="col-xs-1">
-                        <img class="chevron" alt="chevron" src="{{ asset('img/chevron-gauche.png') }}">
-                    </div>
-                    <div class="col-xs-6 text-center">
-                        <h5><a href="{{ path('questions_show', { 'id': question.id }) }}">{{ question.intituleQuestion }} </a></h5>
+                <div class="quest_accueil">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-xs-2 text-center">
+                                <h5>{{ question.votes|length }}</h5>
+                                <h5><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Votes</h5>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <h5>{{ question.nbVue }}</h5>
+                                <h5><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Vues</h5>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="chevron" alt="chevron" src="{{ asset('img/chevron-droit.png') }}">
+                            </div>
+                            <div class="col-xs-4 text-center">
+                                <h5>{{ question.reponses|length }}</h5>
+                                <h5><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><br>Réponses</h5>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="chevron" alt="chevron" src="{{ asset('img/chevron-gauche.png') }}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="{{ path('questions_show', { 'id': question.id }) }}">
+                                <div class="text-center">
+                                    <h5>{{ question.intituleQuestion }}</h5>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             {% endfor %}
