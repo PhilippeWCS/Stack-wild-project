@@ -18,15 +18,15 @@
                     <div class="main">
                         <h3 class="name">{{ user.prenom }} {{ user.nom }}</h3>
                         <p class="email">{{ user.email }}</p>
-                        <p class="text-center">{{ user.profil }}</p>
+                        <p class="text-center">Profil : {{ user.profil }}</p>
                         {% if user.villeEcole %}
-                            <p class="text-center">{{ user.villeEcole }}</p>
+                            <p class="text-center">Ville de l'Ecole : {{ user.villeEcole }}</p>
                         {% endif %}
                         {% if user.emploi %}
-                            <p class="text-center">{{ user.emploi }}</p>
+                            <p class="text-center">Emploi : {{ user.emploi }}</p>
                         {% endif %}
                         {% if user.entreprise %}
-                            <p class="text-center">{{ user.entreprise }}</p>
+                            <p class="text-center">Entreprise : {{ user.entreprise }}</p>
                         {% endif %}
                     </div>
                     <div class="footer">
