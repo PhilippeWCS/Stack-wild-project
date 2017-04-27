@@ -2,6 +2,11 @@
 
 {% block Wcsplatform_body %}
     {% block fos_user_content %}
+
+        <div class="page-header">
+            <h2>Modification profil</h2>
+        </div>
+
         {{ form_start(form, {'method': 'post', 'action': path('fos_user_profile_edit'), 'attr': {'class': 'fos_user_registration_register', 'novalidate': 'novalidate', 'autocomplete': 'off'}}) }}
         <div class="row">
             <div class="col-xs-3">

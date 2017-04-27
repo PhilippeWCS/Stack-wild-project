@@ -2,16 +2,17 @@
 
 {% block Wcsplatform_body  %}
 
-    <div id="contenu">
-        <div class="formulaire">
-            <h2>Modification question</h2>
-            {{ form_start(edit_form, { 'action': path('questions_edit', { 'id': question.id }), 'attr': { 'novalidate': 'novalidate', 'autocomplete': 'off' } }) }}
-            {{ form_widget(edit_form) }}
-        </div>
-        <a href="{{ path('questions_index') }}" class="btn bouton">Retour aux questions</a>
-        <button class="btn bouton" type="submit" value="Modifier">Modifier</button>
-        {{ form_end(edit_form) }}
+    <div class="page-header">
+        <h2>Modification question</h2>
     </div>
+
+    {{ form_start(edit_form, { 'action': path('questions_edit', { 'id': question.id }), 'attr': { 'novalidate': 'novalidate', 'autocomplete': 'off' } }) }}
+        {{ form_widget(edit_form) }}
+        <div class="form-group text-right">
+            <a href="{{ path('questions_show', { 'id': question.id }) }}" class="btn bouton"><i class="fa fa-reply" aria-hidden="true"></i> Retour</a>
+            <button class="btn bouton" type="submit" value="Modifier"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Modifier</button>
+        </div>
+    {{ form_end(edit_form) }}
 
 {% endblock %}
 
@@ -20,7 +21,6 @@
     <script src="{{ asset('js/markdown.js') }}"></script>
     <script src="{{ asset('js/categoriesInQuestions.js') }}"></script>
     <script src="{{ asset('js/bootstrap-multiselect.js') }}"></script>
-
 {% endblock %}
 
 

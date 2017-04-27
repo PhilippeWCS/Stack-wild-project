@@ -1,27 +1,25 @@
 {% extends '::layout.html.twig' %}
+
 {% block Wcsplatform_body %}
 
-
-    <div class="container">
-      <h2>Liste des Catégories</h2>
-
-            <div class="row">
-                {% for categorie in categories %}
-                    <div class="col-sm-2 col-xs-6">
-                        {{ categorie.intitule }}
-                        <div class="categories">
-                            <img class="img-responsive text-center categoriesLogo" src="{{ asset('img/' ~ categorie.imgCategories) }}"/>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-
-
+    <div class="page-header">
+        <div class="text-right">
+            <a href="{{ path('wcs_platform_categories_add') }}" class="btn bouton"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter une catégorie</a>
+        </div>
+        <h2>Liste des Catégories</h2>
     </div>
 
-
-
-
-    <a href="{{ path('wcs_platform_categories_add') }}" class="btn bouton">Ajouter une catégorie</a>
+    <div class="row">
+        {% for categorie in categories %}
+            <div class="col-sm-2 col-xs-6">
+                {{ categorie.intitule }}
+                {% if categorie.imgCategories %}
+                    <div class="categories">
+                        <img class="img-responsive text-center categoriesLogo" src="{{ asset('img/' ~ categorie.imgCategories) }}"/>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
 
 {% endblock %}
