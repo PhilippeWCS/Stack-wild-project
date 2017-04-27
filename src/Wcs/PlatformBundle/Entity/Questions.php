@@ -77,6 +77,13 @@ class Questions
     private $reponses;
 
     /**
+     *
+     * @ORM\OneToMany(targetEntity="Vote", mappedBy="question")
+     *
+     */
+    private $votes;
+
+    /**
      * Get id
      *
      * @return int
@@ -335,5 +342,39 @@ class Questions
     public function setAddAtValue()
     {
         $this->addAt = new \DateTime();
+    }
+
+    /**
+     * Add vote
+     *
+     * @param \Wcs\PlatformBundle\Entity\Vote $vote
+     *
+     * @return Questions
+     */
+    public function addVote(\Wcs\PlatformBundle\Entity\Vote $vote)
+    {
+        $this->votes[] = $vote;
+
+        return $this;
+    }
+
+    /**
+     * Remove vote
+     *
+     * @param \Wcs\PlatformBundle\Entity\Vote $vote
+     */
+    public function removeVote(\Wcs\PlatformBundle\Entity\Vote $vote)
+    {
+        $this->votes->removeElement($vote);
+    }
+
+    /**
+     * Get votes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVotes()
+    {
+        return $this->votes;
     }
 }

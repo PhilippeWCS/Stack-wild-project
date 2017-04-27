@@ -68,10 +68,16 @@ class QuestionsController extends Controller
         $question->setNbVue($NbVue);
         $em->flush();
 
-
+        $voteRepFobidden = $em->getRepository('WcsPlatformBundle:Vote')->voteReponsesForbiddenByUserAndByQuestion($this->getUser(), $question->getId());
+        $voteQuestForbidden = $em->getRepository('WcsPlatformBundle:Vote')->findBy(array(
+            'user' => $this->getUser(),
+            'question' => $question->getId()
+        ));
 
         return $this->render('questions/show.html.twig', array(
             'question' => $question,
+            'voteRepFobidden' => $voteRepFobidden,
+            'voteQuestForbidden' => $voteQuestForbidden,
             'delete_form' => $deleteForm->createView()
         ));
     }
