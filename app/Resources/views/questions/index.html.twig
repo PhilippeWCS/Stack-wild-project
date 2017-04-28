@@ -54,7 +54,11 @@
                                         {% endif %}
                                     </h5>
                                     <h5><i>Question posé par {{ question.user.prenom }} {{ question.user.nom }}</i></h5>
-
+                                    <h5>
+                                    {% for categorie in question.categories %}
+                                        <i>{{ categorie.intitule }} </i>
+                                    {% endfor %}
+                                    </h5>
                                 </div>
                             </a>
                         </div>
