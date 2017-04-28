@@ -76,7 +76,7 @@ class Vote
     /**
      * Set question
      *
-     * @param \Wcs\PlatformBundle\Entity\Question $question
+     * @param \Wcs\PlatformBundle\Entity\Questions $question
      *
      * @return Vote
      */
@@ -90,7 +90,7 @@ class Vote
     /**
      * Get question
      *
-     * @return \Wcs\PlatformBundle\Entity\Question
+     * @return \Wcs\PlatformBundle\Entity\Questions
      */
     public function getQuestion()
     {
@@ -121,27 +121,4 @@ class Vote
         return $this->reponse;
     }
 
-    /**
-     * Set valueVote
-     *
-     * @param integer $valueVote
-     *
-     * @return Vote
-     */
-    public function setValueVote($valueVote)
-    {
-        $this->ValueVote = $valueVote;
-
-        return $this;
-    }
-
-    /**
-     * Get valueVote
-     *
-     * @return integer
-     */
-    public function getValueVote()
-    {
-        return $this->ValueVote;
-    }
 }

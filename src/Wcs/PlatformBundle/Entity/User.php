@@ -60,6 +60,18 @@ class User extends BaseUser
     /**
      * @var string
      *
+     * @ORM\Column(name="slogan", type="string", length=255)
+     * @Assert\Type("string")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 255,
+     * )
+     */
+    private $slogan;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="img_profil", type="string", length=100, nullable=true)
      */
     private $imgProfil='profil_default.png';
@@ -561,5 +573,29 @@ class User extends BaseUser
     public function getVotes()
     {
         return $this->votes;
+    }
+
+    /**
+     * Set slogan
+     *
+     * @param string $slogan
+     *
+     * @return User
+     */
+    public function setSlogan($slogan)
+    {
+        $this->slogan = $slogan;
+
+        return $this;
+    }
+
+    /**
+     * Get slogan
+     *
+     * @return string
+     */
+    public function getSlogan()
+    {
+        return $this->slogan;
     }
 }
