@@ -47,7 +47,12 @@
                         <div class="col-md-6 col-xs-12">
                             <a href="{{ path('questions_show', { 'id': question.id }) }}">
                                 <div class="text-center">
-                                    <h5>{{ question.intituleQuestion }}</h5>
+                                    <h5>
+                                        {{ question.intituleQuestion }}
+                                        {% if question.resolu != 0 %}
+                                            <span class="resoluGlyph glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                        {% endif %}
+                                    </h5>
                                     <h5><i>Question posé par {{ question.user.prenom }} {{ question.user.nom }}</i></h5>
 
                                 </div>
