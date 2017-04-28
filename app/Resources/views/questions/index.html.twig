@@ -3,7 +3,7 @@
 {% block Wcsplatform_body %}
 
     <div class="row">
-        <div class="col-xs-3">
+        <div class="col-md-3 col-sm-5 col-xs-12">
             <div class="display-table">
                 <div class="display-table-row">
                     <div class="v-align box" id="navigation">
@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <div class="col-xs-9">
+        <div class="col-md-9 col-sm-7 col-xs-12">
             {% for question in questions %}
                 <div class="quest_accueil">
                     <div class="row">
@@ -44,10 +44,12 @@
                                 <img class="chevron" alt="chevron" src="{{ asset('img/chevron-gauche.png') }}">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-xs-12">
                             <a href="{{ path('questions_show', { 'id': question.id }) }}">
                                 <div class="text-center">
                                     <h5>{{ question.intituleQuestion }}</h5>
+                                    <h5><i>Question posé par {{ question.user.prenom }} {{ question.user.nom }}</i></h5>
+
                                 </div>
                             </a>
                         </div>
