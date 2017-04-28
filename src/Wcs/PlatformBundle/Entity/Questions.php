@@ -265,13 +265,13 @@ class Questions
     /**
      * Add category
      *
-     * @param \Wcs\PlatformBundle\Entity\Categories $category
+     * @param \Wcs\PlatformBundle\Entity\Categories $categories
      *
      * @return Questions
      */
-    public function addCategory(\Wcs\PlatformBundle\Entity\Categories $category)
+    public function addCategory(\Wcs\PlatformBundle\Entity\Categories $categories)
     {
-        $this->categories[] = $category;
+        $this->categories[] = $categories;
 
         return $this;
     }
@@ -279,11 +279,11 @@ class Questions
     /**
      * Remove category
      *
-     * @param \Wcs\PlatformBundle\Entity\Categories $category
+     * @param \Wcs\PlatformBundle\Entity\Categories $categories
      */
-    public function removeCategory(\Wcs\PlatformBundle\Entity\Categories $category)
+    public function removeCategory(\Wcs\PlatformBundle\Entity\Categories $categories)
     {
-        $this->categories->removeElement($category);
+        $this->categories->removeElement($categories);
     }
 
     /**
