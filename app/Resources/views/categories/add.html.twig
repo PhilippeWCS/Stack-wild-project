@@ -1,20 +1,18 @@
 {% extends '::layout.html.twig' %}
+
 {% block Wcsplatform_body %}
-    <div id="contenu">
-        <div class="formulaire">
-            <h2>Choisis ta catégorie</h2>
-            {{ form_start(form, { 'action': path('wcs_platform_categories_add'), 'attr': { 'novalidate': 'novalidate', 'autocomplete': 'off' } }) }}
-            {{ form_widget(form) }}
-            {{ form_row(form.imgCategories) }}
-        </div>
-        <a href="{{ path('questions_index') }}" class="btn bouton">Retour aux questions</a>
 
-        <button class="btn bouton" type="submit" value="Poste-moi">Valider</button>
-        {{ form_end(form) }}
-
-
-
+    <div class="page-header">
+        <h2>Ajoute une catégorie</h2>
     </div>
-    <br/>
+
+    {{ form_start(form, { 'action': path('wcs_platform_categories_add'), 'attr': { 'novalidate': 'novalidate', 'autocomplete': 'off' } }) }}
+        {{ form_widget(form) }}
+        {{ form_row(form.imgCategories) }}
+        <div class="form-group text-right">
+            <a href="{{ path('wcs_platform_categories_index') }}" class="btn bouton"><i class="fa fa-reply" aria-hidden="true"></i> Retour aux catégories</a>
+            <button class="btn bouton" type="submit" value="Ajouter"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ajouter</button>
+        </div>
+    {{ form_end(form) }}
 
 {% endblock %}

@@ -54,7 +54,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ app.user.prenom }} {{ app.user.nom }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path('fos_user_profile_edit') }}"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Profil</a></li>
+                                <li><a href="{{ path('fos_user_profile_show') }}"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Profil</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
                             </ul>
@@ -74,6 +74,16 @@
     </div>
         
     <div class="container" id="contenu">
+
+        {% for type, flash_messages in app.session.flashBag.all %}
+            {% for flash_message in flash_messages %}
+                <div class="alert alert-info alert-dismissible flash-{{ type }}" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
         {% block Wcsplatform_body %}
 
         {% endblock %}

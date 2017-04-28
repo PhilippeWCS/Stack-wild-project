@@ -8,9 +8,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Wcs\PlatformBundle\Entity\Questions;
 use Wcs\PlatformBundle\Entity\Vote;
 use Wcs\PlatformBundle\WcsPlatformBundle;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class VoteController extends Controller
 {
+    /**
+     * @Security("has_role('ROLE_USER')")
+     */
     public function voteAction(Request $request)
     {
         if ($request->isXmlHttpRequest()) {

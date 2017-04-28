@@ -1,21 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends "::layout.html.twig" %}
 
-{% block body %}
-    <h1>Question edit</h1>
+{% block Wcsplatform_body  %}
 
-    {{ form_start(edit_form) }}
+    <div class="page-header">
+        <h2>Modification question</h2>
+    </div>
+
+    {{ form_start(edit_form, { 'action': path('questions_edit', { 'id': question.id }), 'attr': { 'novalidate': 'novalidate', 'autocomplete': 'off' } }) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <div class="form-group text-right">
+            <a href="{{ path('questions_show', { 'id': question.id }) }}" class="btn bouton"><i class="fa fa-reply" aria-hidden="true"></i> Retour</a>
+            <button class="btn bouton" type="submit" value="Modifier"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Modifier</button>
+        </div>
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('questions_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/markdown.js') }}"></script>
+    <script src="{{ asset('js/categoriesInQuestions.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-multiselect.js') }}"></script>
+{% endblock %}
+
+

@@ -65,7 +65,6 @@ class QuestionsController extends Controller
      */
     public function showAction(Questions $question)
     {
-        $deleteForm = $this->createDeleteForm($question);
         $em = $this->getDoctrine()->getManager();
         $NbVue = $question->getNbVue();
         $NbVue += 1;
@@ -82,7 +81,6 @@ class QuestionsController extends Controller
             'question' => $question,
             'voteRepFobidden' => $voteRepFobidden,
             'voteQuestForbidden' => $voteQuestForbidden,
-            'delete_form' => $deleteForm->createView()
         ));
     }
 
@@ -93,20 +91,23 @@ class QuestionsController extends Controller
      */
     public function editAction(Request $request, Questions $question)
     {
-        $deleteForm = $this->createDeleteForm($question);
         $editForm = $this->createForm('Wcs\PlatformBundle\Form\QuestionsType', $question);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('questions_edit', array('id' => $question->getId()));
+            $this->addFlash(
+                'success',
+                'La question a bien été modifié'
+            );
+
+            return $this->redirectToRoute('questions_show', array('id' => $question->getId()));
         }
 
         return $this->render('questions/edit.html.twig', array(
             'question' => $question,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -118,31 +119,16 @@ class QuestionsController extends Controller
      */
     public function deleteAction(Request $request, Questions $question)
     {
-        $form = $this->createDeleteForm($question);
-        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($question);
+        $em->flush();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($question);
-            $em->flush();
-        }
+        $this->addFlash(
+            'success',
+            'La question a bien été supprimée'
+        );
 
         return $this->redirectToRoute('questions_index');
     }
 
-    /**
-     * Creates a form to delete a question entity.
-     *
-     * @param Questions $question The question entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Questions $question)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('questions_delete', array('id' => $question->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
 }
