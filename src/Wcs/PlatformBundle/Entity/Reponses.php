@@ -33,6 +33,13 @@ class Reponses
     private $contenu;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="resolu", type="integer")
+     */
+    private $resolu = 0;
+
+    /**
      * @var datetime
      *
      * @ORM\Column(name="Add_at", type="datetime")
@@ -214,5 +221,29 @@ class Reponses
     public function getVotes()
     {
         return $this->votes;
+    }
+
+    /**
+     * Set resolu
+     *
+     * @param integer $resolu
+     *
+     * @return Reponses
+     */
+    public function setResolu($resolu)
+    {
+        $this->resolu = $resolu;
+
+        return $this;
+    }
+
+    /**
+     * Get resolu
+     *
+     * @return integer
+     */
+    public function getResolu()
+    {
+        return $this->resolu;
     }
 }

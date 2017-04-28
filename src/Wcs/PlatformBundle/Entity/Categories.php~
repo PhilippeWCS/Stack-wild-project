@@ -3,6 +3,7 @@
 namespace Wcs\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Categories
@@ -25,6 +26,12 @@ class Categories
      * @var string
      *
      * @ORM\Column(name="intitule", type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
+     * @Assert\Type("string")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 255,
+     * )
      */
     private $intitule;
 

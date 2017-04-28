@@ -29,3 +29,11 @@ wcs_platform_user_show:
 wcs_platform_vote:
     path:     /vote
     defaults: { _controller: WcsPlatformBundle:Vote:vote }
+
+wcs_platform_question_resolu:
+    path: /resolu
+    defaults: { _controller: WcsPlatformBundle:Questions:resolu }
+
+wcs_platform_reponse_resolu:
+    path: /resolu
+    defaults: { _controller: WcsPlatformBundle:Reponses:resolu }
