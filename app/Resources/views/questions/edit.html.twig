@@ -1,19 +1,16 @@
 {% extends "::layout.html.twig" %}
 
-{% block Wcsplatform_body  %}
-
+{% block Wcsplatform_body %}
     <div class="page-header">
         <h2>Modification question</h2>
     </div>
-
     {{ form_start(edit_form, { 'action': path('questions_edit', { 'id': question.id }), 'attr': { 'novalidate': 'novalidate', 'autocomplete': 'off' } }) }}
-        {{ form_widget(edit_form) }}
-        <div class="form-group text-right">
-            <a href="{{ path('questions_show', { 'id': question.id }) }}" class="btn bouton"><i class="fa fa-reply" aria-hidden="true"></i> Retour</a>
-            <button class="btn bouton" type="submit" value="Modifier"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Modifier</button>
-        </div>
+    {{ form_widget(edit_form) }}
+    <div class="form-group text-right">
+        <a href="{{ path('questions_show', { 'id': question.id }) }}" class="btn bouton"><i class="fa fa-reply" aria-hidden="true"></i>Retour</a>
+        <button class="btn bouton" type="submit" value="Modifier"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Modifier</button>
+    </div>
     {{ form_end(edit_form) }}
-
 {% endblock %}
 
 {% block javascripts %}

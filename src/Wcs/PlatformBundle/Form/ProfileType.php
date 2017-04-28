@@ -41,6 +41,7 @@ class ProfileType extends AbstractType
             ->add('urlLinkedin', UrlType::class, array('label' => 'Profil LinkedIn'))
             ->add('urlTweeter', UrlType::class, array('label' => 'Profil Tweeter'))
             ->add('urlGithub', UrlType::class, array('label' => 'Profil Github'))
+            ->add('slogan', TextType::class, array('label' => 'Ton slogan'))
             ->add('categories', EntityType::class, array(
                 'class' => 'WcsPlatformBundle:Categories',
                 'label' => 'Choix des catégories',

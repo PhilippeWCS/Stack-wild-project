@@ -60,6 +60,18 @@ class User extends BaseUser
     /**
      * @var string
      *
+     * @ORM\Column(name="slogan", type="string", length=255)
+     * @Assert\Type("string")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 255,
+     * )
+     */
+    private $slogan;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="img_profil", type="string", length=100, nullable=true)
      */
     private $imgProfil='profil_default.png';

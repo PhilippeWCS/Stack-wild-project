@@ -420,7 +420,9 @@ a{
     width: 33.333333%;
     text-align: center;
 }
-
+.borderline{
+    border-right: 1px solid #EEEEEE;
+}
 .card .stats:first-child{
     border-right: 1px solid #EEEEEE;
 }

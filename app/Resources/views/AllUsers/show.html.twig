@@ -36,27 +36,29 @@
                 <div class="back">
                     <div class="content">
                         <div class="header">
-                            <h5 class="motto">"To be or not to be, that is the Question!"</h5>
+                            <h5 class="motto">{{ user.slogan }}</h5>
                         </div>
                         <div class="main">
                             <h4 class="text-center">Tes catégories préférées</h4>
                             {% for categorie in user.categories %}
                                 <span class="text-center" >{{ categorie.intitule }} -</span>
                             {% endfor %}
-                            <h4 class="text-center">Statistiques</h4>
-                            <p class="text-center"> Tes questions, tes réponses, tes votes...</p>
                             <div class="stats-container">
-                                <div class="stats">
-                                    <h4>235</h4>
+                                <h4 class="text-center">Statistiques</h4>
+                                <div class="stats borderline">
+                                    <h4>{{ user.questions|length }}</h4>
                                     <p>Questions</p>
+                                    <i class="fa fa-quora" aria-hidden="true"></i>
                                 </div>
                                 <div class="stats">
-                                    <h4>114</h4>
+                                    <h4>{{ user.reponses|length }}</h4>
                                     <p>Réponses</p>
+                                    <i class="glyphicon glyphicon-comment" aria-hidden="true"></i>
                                 </div>
                                 <div class="stats">
-                                    <h4>35</h4>
+                                    <h4>{{ user.votes|length }}</h4>
                                     <p>Votes</p>
+                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                 </div>
                             </div>
                         </div>
