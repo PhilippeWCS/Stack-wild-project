@@ -33,6 +33,13 @@ class Reponses
     private $contenu;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="resolu", type="integer")
+     */
+    private $resolu = 0;
+
+    /**
      * @var datetime
      *
      * @ORM\Column(name="Add_at", type="datetime")

@@ -7,6 +7,7 @@ use Wcs\PlatformBundle\Entity\Categories;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Question controller.
@@ -49,6 +50,11 @@ class QuestionsController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($question);
             $em->flush();
+
+            $this->addFlash(
+                'success',
+                'La question a bien été ajoutée'
+            );
 
             return $this->redirectToRoute('questions_index');
         }
@@ -99,7 +105,7 @@ class QuestionsController extends Controller
 
             $this->addFlash(
                 'success',
-                'La question a bien été modifié'
+                'La question a bien été modifiée'
             );
 
             return $this->redirectToRoute('questions_show', array('id' => $question->getId()));
@@ -129,6 +135,21 @@ class QuestionsController extends Controller
         );
 
         return $this->redirectToRoute('questions_index');
+    }
+
+    public function resoluAction(Request $request)
+    {
+        if ($request->isXmlHttpRequest()){
+            $id = $request->get('id');
+
+            $em = $this->getDoctrine()->getManager();
+
+            $question = $em->getRepository('WcsPlatformBundle:Questions')->find($id);
+            $question->setResolu($id);
+
+            $em->flush();
+            return new JsonResponse(array('statut' => "ok"));
+        }
     }
 
 }

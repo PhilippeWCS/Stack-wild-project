@@ -559,3 +559,14 @@ a{
 {
     color: #1fa597;
 }
+
+.resoluGlyph
+{
+    color: #1fa597;
+}
+
+.resoluGlyphNone
+{
+    display: none;
+    color: #1fa597;
+}
