@@ -75,8 +75,8 @@
                         <div class="col-xs-2">
                             <h3 id="vote_{{ reponse.id }}" class="text-center">{{ reponse.votes|length }}</h3>
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") and reponse.id not in voteRepFobidden and reponse.votes(app.user.id) is empty and reponse.user.id != app.user.id %}
-                                <h3 class="text-center"><a class="vote voteButton" data-id="{{ reponse.id }}"><span
-                                                class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
+                                <h3 class="text-center"><a class="vote voteButton" data-id="{{ reponse.id }}">
+                                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
                                 </h3>
                             {% endif %}
                         </div>
